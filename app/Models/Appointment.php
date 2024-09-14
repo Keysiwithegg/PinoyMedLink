@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Appointment extends Model
 {
-    protected $table = 'appointments';
-    protected $primaryKey = 'appointment_id';
+    protected $table = 'appointments'; // Correct table name
+    protected $primaryKey = 'appointment_id'; // Correct primary key
 
     protected $fillable = [
         'patient_id',
@@ -16,7 +16,7 @@ class Appointment extends Model
         'appointment_date',
         'reason_for_visit',
         'status',
-    ];
+    ]; // Correct fillable attributes
 
     // An appointment belongs to a patient
     public function patient()
@@ -36,4 +36,3 @@ class Appointment extends Model
         return $this->belongsTo(Hospital::class, 'hospital_id');
     }
 }
-

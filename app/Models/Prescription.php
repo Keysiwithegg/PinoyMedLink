@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Prescription extends Model
 {
-    protected $table = 'prescriptions';
-    protected $primaryKey = 'prescription_id';
+    protected $table = 'prescriptions'; // Correct table name
+    protected $primaryKey = 'prescription_id'; // Correct primary key
 
     protected $fillable = [
         'record_id',
@@ -15,7 +15,7 @@ class Prescription extends Model
         'dosage',
         'frequency',
         'duration',
-    ];
+    ]; // Correct fillable attributes
 
     // A prescription belongs to a medical record
     public function medicalRecord()

@@ -18,7 +18,11 @@ return new class extends Migration
             $table->string('specialty', 100)->nullable();
             $table->string('contact_number', 15)->nullable();
             $table->string('email', 100)->nullable();
+            $table->unsignedBigInteger('hospital_id'); // Add this line
+            $table->unsignedBigInteger('user_id'); // Add this line
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade'); // Add this line
         });
     }
 

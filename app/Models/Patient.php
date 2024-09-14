@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Patient extends Model
 {
-    protected $table = 'patients';
-    protected $primaryKey = 'patient_id';
+    protected $table = 'patients'; // Correct table name
+    protected $primaryKey = 'patient_id'; // Correct primary key
 
     protected $fillable = [
         'first_name',
@@ -17,7 +17,7 @@ class Patient extends Model
         'contact_number',
         'email',
         'address',
-    ];
+    ]; // Correct fillable attributes
 
     // A patient can have many appointments
     public function appointments()

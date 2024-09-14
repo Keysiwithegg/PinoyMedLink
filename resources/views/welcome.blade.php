@@ -30,6 +30,12 @@
         <!-- Magnific Popup CSS -->
         <link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}">
 
+        <style>
+            html {
+                scroll-behavior: smooth;
+            }
+
+        </style>
         <!-- Medipro CSS -->
         <link rel="stylesheet" href="{{ asset('css/normalize.css') }}">
         <link rel="stylesheet" href="{{ asset('style.css') }}">
@@ -104,16 +110,6 @@
                                     <ul class="nav menu">
                                         <li><a href="#">Hospitals</a></li>
                                         <li><a href="#">Services</a></li>
-{{--                                        <li><a href="#">Pages <i class="icofont-rounded-down"></i></a>--}}
-{{--                                            <ul class="dropdown">--}}
-{{--                                                <li><a href="404.html">404 Error</a></li>--}}
-{{--                                            </ul>--}}
-{{--                                        </li>--}}
-{{--                                        <li><a href="#">Blogs <i class="icofont-rounded-down"></i></a>--}}
-{{--                                            <ul class="dropdown">--}}
-{{--                                                <li><a href="blog-single.html">Blog Details</a></li>--}}
-{{--                                            </ul>--}}
-{{--                                        </li>--}}
                                         <li><a href="#">Contact Us</a></li>
                                     </ul>
                                 </nav>
@@ -122,7 +118,7 @@
                         </div>
                         <div class="col-lg-2 col-12">
                             <div class="get-quote">
-                                <a href="appointment.html" class="btn">Register Now!</a>
+                                <a href="#pricing-table" class="btn">Register Now!</a>
                             </div>
                         </div>
                     </div>
@@ -570,105 +566,96 @@
     <!--/ End service -->
 
     <!-- Pricing Table -->
-    <section class="pricing-table section">
+    <section id="pricing-table" class="pricing-table section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>We Provide You The Best Treatment In Resonable Price</h2>
+                        <h2>Affordable Treatment Plans</h2>
                         <img src="img/section-img.png" alt="#">
-                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+                        <p>Choose the plan that suits your needs and budget. Quality care at a reasonable price.</p>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <!-- Single Table -->
+                <!-- Free Tier -->
                 <div class="col-lg-4 col-md-12 col-12">
                     <div class="single-table">
-                        <!-- Table Head -->
                         <div class="table-head">
                             <div class="icon">
-                                <i class="icofont icofont-ui-cut"></i>
+                                <i class="icofont icofont-tag"></i>
                             </div>
-                            <h4 class="title">Plastic Suggery</h4>
+                            <h4 class="title">Free Tier</h4>
                             <div class="price">
-                                <p class="amount">$199<span>/ Per Visit</span></p>
+                                <p class="amount">$0</p>
                             </div>
                         </div>
-                        <!-- Table List -->
                         <ul class="table-list">
-                            <li><i class="icofont icofont-ui-check"></i>Lorem ipsum dolor sit</li>
-                            <li><i class="icofont icofont-ui-check"></i>Cubitur sollicitudin fentum</li>
-                            <li class="cross"><i class="icofont icofont-ui-close"></i>Nullam interdum enim</li>
-                            <li class="cross"><i class="icofont icofont-ui-close"></i>Donec ultricies metus</li>
-                            <li class="cross"><i class="icofont icofont-ui-close"></i>Pellentesque eget nibh</li>
+                            <li><i class="icofont icofont-ui-check"></i>1 doctor, 1 nurse</li>
+                            <li><i class="icofont icofont-ui-check"></i>Up to 20 patients</li>
+                            <li><i class="icofont icofont-ui-check"></i>Basic records management</li>
+                            <li><i class="icofont icofont-ui-check"></i>Appointment scheduling</li>
+                            <li><i class="icofont icofont-ui-check"></i>Email support</li>
                         </ul>
                         <div class="table-bottom">
-                            <a class="btn" href="#">Book Now</a>
+                            <a class="btn" href="{{ route('register', ['subscription_type' => 'Basic']) }}">Book Now</a>
                         </div>
-                        <!-- Table Bottom -->
                     </div>
                 </div>
-                <!-- End Single Table-->
-                <!-- Single Table -->
+                <!-- Starter Tier -->
                 <div class="col-lg-4 col-md-12 col-12">
                     <div class="single-table">
-                        <!-- Table Head -->
                         <div class="table-head">
                             <div class="icon">
-                                <i class="icofont icofont-tooth"></i>
+                                <i class="icofont icofont-rocket"></i>
                             </div>
-                            <h4 class="title">Teeth Whitening</h4>
+                            <h4 class="title">Starter Tier</h4>
                             <div class="price">
-                                <p class="amount">$299<span>/ Per Visit</span></p>
+                                <p class="amount">$100</p>
                             </div>
                         </div>
-                        <!-- Table List -->
                         <ul class="table-list">
-                            <li><i class="icofont icofont-ui-check"></i>Lorem ipsum dolor sit</li>
-                            <li><i class="icofont icofont-ui-check"></i>Cubitur sollicitudin fentum</li>
-                            <li><i class="icofont icofont-ui-check"></i>Nullam interdum enim</li>
-                            <li class="cross"><i class="icofont icofont-ui-close"></i>Donec ultricies metus</li>
-                            <li class="cross"><i class="icofont icofont-ui-close"></i>Pellentesque eget nibh</li>
+                            <li><i class="icofont icofont-ui-check"></i>3 doctors, 3 nurses</li>
+                            <li><i class="icofont icofont-ui-check"></i>Up to 100 patients</li>
+                            <li><i class="icofont icofont-ui-check"></i>All Free Tier features</li>
+                            <li><i class="icofont icofont-ui-check"></i>Prescription management</li>
+                            <li><i class="icofont icofont-ui-check"></i>Email and chat support</li>
                         </ul>
                         <div class="table-bottom">
-                            <a class="btn" href="#">Book Now</a>
+                            <a class="btn" href="{{ route('register', ['subscription_type' => 'Starter Tier']) }}">Book Now</a>
                         </div>
-                        <!-- Table Bottom -->
                     </div>
                 </div>
-                <!-- End Single Table-->
-                <!-- Single Table -->
+                <!-- Professional Tier -->
                 <div class="col-lg-4 col-md-12 col-12">
                     <div class="single-table">
-                        <!-- Table Head -->
                         <div class="table-head">
                             <div class="icon">
-                                <i class="icofont-heart-beat"></i>
+                                <i class="icofont icofont-star"></i>
                             </div>
-                            <h4 class="title">Heart Suggery</h4>
+                            <h4 class="title">Professional Tier</h4>
                             <div class="price">
-                                <p class="amount">$399<span>/ Per Visit</span></p>
+                                <p class="amount">$500</p>
                             </div>
                         </div>
-                        <!-- Table List -->
                         <ul class="table-list">
-                            <li><i class="icofont icofont-ui-check"></i>Lorem ipsum dolor sit</li>
-                            <li><i class="icofont icofont-ui-check"></i>Cubitur sollicitudin fentum</li>
-                            <li><i class="icofont icofont-ui-check"></i>Nullam interdum enim</li>
-                            <li><i class="icofont icofont-ui-check"></i>Donec ultricies metus</li>
-                            <li><i class="icofont icofont-ui-check"></i>Pellentesque eget nibh</li>
+                            <li><i class="icofont icofont-ui-check"></i>10 doctors, 10 nurses</li>
+                            <li><i class="icofont icofont-ui-check"></i>Up to 500 patients</li>
+                            <li><i class="icofont icofont-ui-check"></i>All Starter Tier features</li>
+                            <li><i class="icofont icofont-ui-check"></i>Advanced telehealth</li>
+                            <li><i class="icofont icofont-ui-check"></i>Phone and chat support</li>
                         </ul>
                         <div class="table-bottom">
-                            <a class="btn" href="#">Book Now</a>
+                            <a class="btn" href="{{ route('register', ['subscription_type' => 'Enterprise']) }}">Book Now</a>
                         </div>
-                        <!-- Table Bottom -->
                     </div>
                 </div>
-                <!-- End Single Table-->
             </div>
         </div>
     </section>
+
+
+
     <!--/ End Pricing Table -->
 
 

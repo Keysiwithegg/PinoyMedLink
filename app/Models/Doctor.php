@@ -1,5 +1,7 @@
 <?php
 
+// app/Models/Doctor.php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
@@ -16,23 +18,26 @@ class Doctor extends Model
         'contact_number',
         'email',
         'hospital_id',
+        'user_id', // Add this line
     ];
 
-    // A doctor belongs to a hospital
     public function hospital()
     {
         return $this->belongsTo(Hospital::class, 'hospital_id');
     }
 
-    // A doctor can have many appointments
     public function appointments()
     {
         return $this->hasMany(Appointment::class, 'doctor_id');
     }
 
-    // A doctor can have many medical records
     public function medicalRecords()
     {
         return $this->hasMany(MedicalRecord::class, 'doctor_id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id'); // Add this method
     }
 }

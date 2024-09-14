@@ -1,77 +1,108 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">{{ __('Hospital Registration') }}</div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
-
-                        <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                    <div class="card-body">
+                        <div class="progress mb-4">
+                            <div id="progressBar" class="progress-bar progress-bar-striped progress-bar-animated bg-info" style="width: 33%;"></div>
                         </div>
 
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                        <form id="multiStepForm" method="POST" action="{{ route('register') }}">
+                            @csrf
+                            <!-- Add hidden field for subscription type -->
+                            <input type="hidden" id="subscription_type" name="subscription_type" value="{{ request('subscription_type') }}">
+                            <!-- Step 1: User Details -->
+                            <div class="form-step" id="step-1">
+                                <h4><i class="fas fa-user"></i> User Details</h4>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="name" placeholder="Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" name="email" placeholder="Email" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" name="password" placeholder="Password" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" name="password_confirmation" placeholder="Confirm Password" required>
+                                </div>
+                                <button type="button" class="btn btn-primary" onclick="nextStep(2)">Next</button>
                             </div>
-                        </div>
 
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                            <!-- Step 2: Hospital Details -->
+                            <div class="form-step" id="step-2" style="display: none;">
+                                <h4><i class="fas fa-hospital"></i> Hospital Details</h4>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="hospital_name" placeholder="Hospital Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="address" placeholder="Address" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="contact_number" placeholder="Contact Number" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" name="hospital_email" placeholder="Hospital Email" required>
+                                </div>
+                                <button type="button" class="btn btn-secondary" onclick="prevStep(1)">Previous</button>
+                                <button type="button" class="btn btn-primary" onclick="nextStep(3)">Next</button>
                             </div>
-                        </div>
 
-                        <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            <!-- Step 3: Doctor Details -->
+                            <div class="form-step" id="step-3" style="display: none;">
+                                <h4><i class="fas fa-user-md"></i> Doctor Details</h4>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="first_name" placeholder="Doctor First Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="last_name" placeholder="Doctor Last Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="specialty" placeholder="Specialty" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="doctor_contact_number" placeholder="Doctor Contact Number" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" name="doctor_email" placeholder="Doctor Email" required>
+                                </div>
+                                <button type="button" class="btn btn-secondary" onclick="prevStep(2)">Previous</button>
+                                <button type="submit" class="btn btn-success">Register</button>
                             </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
+    <script>
+        function nextStep(step) {
+            document.querySelectorAll('.form-step').forEach(function (step) {
+                step.style.display = 'none';
+            });
+            document.getElementById('step-' + step).style.display = 'block';
+            updateProgressBar(step);
+        }
+
+        function prevStep(step) {
+            document.querySelectorAll('.form-step').forEach(function (step) {
+                step.style.display = 'none';
+            });
+            document.getElementById('step-' + step).style.display = 'block';
+            updateProgressBar(step);
+        }
+
+        function updateProgressBar(step) {
+            let progressBar = document.getElementById('progressBar');
+            if (step === 1) progressBar.style.width = '33%';
+            if (step === 2) progressBar.style.width = '66%';
+            if (step === 3) progressBar.style.width = '100%';
+        }
+    </script>
 @endsection

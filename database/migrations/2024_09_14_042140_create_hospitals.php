@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('contact_number', 15)->nullable();
             $table->string('email', 100)->nullable();
             $table->unsignedInteger('subscription_id')->nullable();
-            $table->enum('subscription_type', ['Basic', 'Premium', 'Enterprise'])->default('Basic');
+            $table->enum('subscription_type', ['Basic', 'Starter', 'Enterprise'])->default('Basic');
             $table->timestamps();
         });
     }
