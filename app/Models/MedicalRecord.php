@@ -16,6 +16,7 @@ class MedicalRecord extends Model
         'diagnosis',
         'treatment',
         'notes',
+        'image'
     ]; // Correct fillable attributes
 
     // A medical record belongs to a patient

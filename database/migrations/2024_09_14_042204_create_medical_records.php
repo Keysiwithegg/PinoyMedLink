@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('diagnosis')->nullable();
             $table->text('treatment')->nullable();
             $table->text('notes')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
