@@ -31,6 +31,11 @@ Route::get('patient/index', [PatientAppointmentController::class, 'index'])->nam
 
 
 Route::get('/patient/prescription', [PatientPrescriptionController::class, 'index'])->name('patient.prescription.index');
+Route::get('/patient/prescription/dataTable', [PatientPrescriptionController::class, 'dataTable'])->name('patient.prescription.dataTable');
+Route::get('/patient/prescription/{id}', [PatientPrescriptionController::class, 'show'])->name('patient.prescription.show');
+Route::get('/patient/prescription/{id}/edit', [PatientPrescriptionController::class, 'edit'])->name('patient.prescription.edit');
+Route::put('/patient/prescription/{id}', [PatientPrescriptionController::class, 'update'])->name('patient.prescription.update');
+Route::delete('/patient/prescription/{id}', [PatientPrescriptionController::class, 'destroy'])->name('patient.prescription.destroy');
 
 //doctor
 Route::get('/doctor/patient', [DoctorPatientController::class, 'index'])->name('doctor.patient.index');
@@ -51,11 +56,14 @@ Route::delete('/doctor/patient/record/{id}', [DoctorPatientRecordController::cla
 Route::get('/doctor/getPatients', [DoctorPatientRecordController::class, 'getPatients'])->name('doctor.getPatients');
 
 //doctor prescription
-
 Route::get('/doctor/prescription', [DoctorPrescriptionRecordController::class, 'index'])->name('doctor.prescription.index');
-
-
-
+Route::get('/doctor/patient/prescription/dataTable', [DoctorPrescriptionRecordController::class, 'dataTable'])->name('doctor.patient.prescription.dataTable');
+Route::post('/doctor/patient/prescription/store', [DoctorPrescriptionRecordController::class, 'store'])->name('doctor.patient.prescription.store');
+Route::get('/doctor/getMedicalRecords', [DoctorPrescriptionRecordController::class, 'getMedicalRecords'])->name('doctor.getMedicalRecords');
+Route::get('/doctor/patient/prescription/{id}', [DoctorPrescriptionRecordController::class, 'show'])->name('doctor.patient.prescription.show');
+Route::get('/doctor/patient/prescription/{id}/edit', [DoctorPrescriptionRecordController::class, 'edit'])->name('doctor.patient.prescription.edit');
+Route::put('/doctor/patient/prescription/{id}', [DoctorPrescriptionRecordController::class, 'update'])->name('doctor.patient.prescription.update');
+Route::delete('/doctor/patient/prescription/{id}', [DoctorPrescriptionRecordController::class, 'destroy'])->name('doctor.patient.prescription.destroy');
 
 Route::get('/patient/record/{id}', [PatientRecordController::class, 'show'])->name('patient.record.show');
 Route::get('/patient/record/{id}/edit', [PatientRecordController::class, 'edit'])->name('patient.record.edit');
