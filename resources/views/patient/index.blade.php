@@ -1,3 +1,6 @@
-<div>
-    <!-- Do what you can, with what you have, where you are. - Theodore Roosevelt -->
-</div>
+@extends('layouts.patient-app')
+
+@section('content')
+    <h1>Dashboard</h1>
+
+@endsection

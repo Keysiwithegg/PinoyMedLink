@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Doctor;
+use App\Models\Patient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\MedicalRecord;
@@ -17,8 +18,15 @@ class PatientRecordController extends Controller
 
     public function dataTable()
     {
-        $records = MedicalRecord::where('patient_id', Auth::id())->get();
-        return response()->json(['data' => $records]);
+        try {
+            $user_id = Auth::id();
+            $patient = Patient::where('user_id', $user_id)->firstOrFail();
+            $records = MedicalRecord::where('patient_id', $patient->patient_id)->get();
+            return response()->json(['data' => $records]);
+        } catch (\Exception $e) {
+            Log::error('Error fetching medical records: ' . $e->getMessage());
+            return response()->json(['message' => 'An error occurred while fetching the medical records.'], 500);
+        }
     }
 
     public function store(Request $request)
@@ -32,11 +40,17 @@ class PatientRecordController extends Controller
         ]);
 
         try {
+            $user_id = Auth::id();
+            $patient = Patient::where('user_id', $user_id)->firstOrFail();
+
             $data = $request->all();
-            $data['patient_id'] = Auth::id();
+            $data['patient_id'] = $patient->patient_id;
+            $data['user_id'] = $user_id;
+
             if ($request->hasFile('image')) {
                 $data['image'] = $request->file('image')->store('images', 'public');
             }
+
             $record = MedicalRecord::create($data);
             return response()->json(['message' => 'Medical record has been added.', 'data' => $record], 201);
         } catch (\Exception $e) {

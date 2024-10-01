@@ -88,7 +88,7 @@
         <li class="menu-header small text-uppercase"><span class="menu-header-text">Patients</span></li>
 
         <li class="menu-item">
-            <a href="patient-records.html" class="menu-link">
+            <a href="{{route('doctor.patient.index')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-user-plus"></i>
                 <div data-i18n="Patient Records">Add Patient</div>
             </a>
