@@ -27,13 +27,15 @@ class LoginController extends Controller
      */
     protected function redirectTo()
     {
-        $role = auth()->user()->role;
+        $role = auth()->user()->role_id;
 
         switch ($role) {
             case 0:
                 return '/patient/index';
             case 1:
                 return '/';
+            case 2:
+                return '/home';
             default:
                 return '/home';
         }

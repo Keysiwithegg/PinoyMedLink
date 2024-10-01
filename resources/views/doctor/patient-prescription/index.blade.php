@@ -1,3 +1,10 @@
-<div>
-    <!-- It is never too late to be what you might have been. - George Eliot -->
-</div>
+@extends('layouts.app')
+
+
+
+@section('content')
+
+<h1>
+    Prescriptions
+</h1>
+@endsection
