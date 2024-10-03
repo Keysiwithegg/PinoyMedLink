@@ -77,8 +77,8 @@
 
         <!-- Doctor Section -->
         <li class="menu-header small text-uppercase"><span class="menu-header-text">Doctor</span></li>
-        <li class="menu-item ">
-            <a href="" class="menu-link">
+        <li class="menu-item {{ Request::is('doctor/appointment') ? 'active' : '' }}">
+            <a href="{{ route('doctor.appointment.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-calendar"></i>
                 <div data-i18n="Appointments">Appointments</div>
             </a>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DoctorAppointmentController;
 use App\Http\Controllers\DoctorPatientController;
 use App\Http\Controllers\DoctorPatientRecordController;
 use App\Http\Controllers\DoctorPrescriptionRecordController;
@@ -64,6 +65,15 @@ Route::get('/doctor/patient/prescription/{id}', [DoctorPrescriptionRecordControl
 Route::get('/doctor/patient/prescription/{id}/edit', [DoctorPrescriptionRecordController::class, 'edit'])->name('doctor.patient.prescription.edit');
 Route::put('/doctor/patient/prescription/{id}', [DoctorPrescriptionRecordController::class, 'update'])->name('doctor.patient.prescription.update');
 Route::delete('/doctor/patient/prescription/{id}', [DoctorPrescriptionRecordController::class, 'destroy'])->name('doctor.patient.prescription.destroy');
+
+
+//doctor prescription
+Route::get('/doctor/appointment', [DoctorAppointmentController::class, 'index'])->name('doctor.appointment.index');
+Route::post('/doctor/appointment/store', [DoctorAppointmentController::class, 'store'])->name('doctor.appointment.store');
+Route::get('/doctor/appointment/hospital_id', [DoctorAppointmentController::class, 'getHospitalId'])->name('doctor.appointment');
+Route::get('/doctor/appointments', [DoctorAppointmentController::class, 'getAllAppointments'])->name('doctor.appointments');
+Route::put('/doctor/appointment/{id}', [DoctorAppointmentController::class, 'update'])->name('doctor.appointment.update');
+Route::get('/doctor/appointment/fetch/{id}', [DoctorAppointmentController::class, 'fetch'])->name('doctor.appointment.fetch');
 
 Route::get('/patient/record/{id}', [PatientRecordController::class, 'show'])->name('patient.record.show');
 Route::get('/patient/record/{id}/edit', [PatientRecordController::class, 'edit'])->name('patient.record.edit');
