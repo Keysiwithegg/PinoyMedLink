@@ -68,10 +68,12 @@ class DoctorPrescriptionRecordController extends Controller
         }
     }
 
-    public function getMedicalRecords()
+    public function getMedicalRecords(Request $request)
     {
+        $patientId = $request->query('patient_id');
+
         try {
-            $medicalRecords = MedicalRecord::all();
+            $medicalRecords = MedicalRecord::where('patient_id', $patientId)->get();
             return response()->json($medicalRecords);
         } catch (\Exception $e) {
             Log::error('Error fetching medical records: ' . $e->getMessage());

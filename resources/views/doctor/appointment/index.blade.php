@@ -14,9 +14,11 @@
 
 @push('scripts')
     <script>
+        var calendar; // Declare the calendar variable globally
+
         document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar');
-            var calendar = new FullCalendar.Calendar(calendarEl, {
+            calendar = new FullCalendar.Calendar(calendarEl, {
                 initialView: 'dayGridMonth',
                 headerToolbar: {
                     left: 'prev,next today',
@@ -52,9 +54,7 @@
             calendar.render();
         });
 
-
         function createAppointment() {
-            // Fetch the hospital_id of the currently logged-in user
             fetch('{{ route('doctor.appointment') }}')
                 .then(response => response.json())
                 .then(data => {
@@ -122,8 +122,7 @@
                                                 icon: 'success',
                                                 confirmButtonText: 'OK'
                                             }).then(() => {
-                                                // Reload the calendar events
-                                                calendar.refetchEvents();
+                                                calendar.refetchEvents(); // Refresh the calendar events
                                             });
                                         } else {
                                             Swal.fire({
@@ -145,7 +144,6 @@
                             }
                         });
 
-                        // Fetch and populate the patient and doctor dropdowns
                         fetch('{{ route('doctor.getPatients') }}')
                             .then(response => response.json())
                             .then(response => {
@@ -191,14 +189,12 @@
         }
 
         function updateAppointment(appointmentId) {
-            // Fetch the hospital_id of the currently logged-in user
             fetch('{{ route('doctor.appointment') }}')
                 .then(response => response.json())
                 .then(data => {
                     if (data.hospital_id) {
                         const hospital_id = data.hospital_id;
 
-                        // Fetch the appointment details
                         fetch(`{{ url('/doctor/appointment/fetch') }}/${appointmentId}`)
                             .then(response => response.json())
                             .then(appointmentData => {
@@ -266,8 +262,7 @@
                                                             icon: 'success',
                                                             confirmButtonText: 'OK'
                                                         }).then(() => {
-                                                            // Reload the calendar events
-                                                            calendar.refetchEvents();
+                                                            calendar.refetchEvents(); // Refresh the calendar events
                                                         });
                                                     } else {
                                                         Swal.fire({
@@ -289,7 +284,6 @@
                                         }
                                     });
 
-                                    // Fetch and populate the patient and doctor dropdowns
                                     fetch('{{ route('doctor.getPatients') }}')
                                         .then(response => response.json())
                                         .then(response => {

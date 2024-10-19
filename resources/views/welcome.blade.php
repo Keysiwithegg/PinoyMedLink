@@ -96,7 +96,7 @@
                         <div class="col-lg-3 col-md-3 col-12">
                             <!-- Start Logo -->
                             <div class="logo">
-                                <a href="index.html"><img src="img/logo.png" alt="#"></a>
+                                <a href="index.html"><img src="{{asset('img/logo-new.png')}}" alt="#"></a>
                             </div>
                             <!-- End Logo -->
                             <!-- Mobile Nav -->
@@ -141,7 +141,7 @@
                                 <h1>We Provide <span>Medical</span> Services That You Can <span>Trust!</span></h1>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed nisl pellentesque, faucibus libero eu, gravida quam. </p>
                                 <div class="button">
-                                    <a href="#" class="btn">Get Appointment</a>
+                                    <a href="#" class="btn">Get a Quote Now!</a>
                                     <a href="#" class="btn primary">Learn More</a>
                                 </div>
                             </div>
@@ -159,7 +159,7 @@
                                 <h1>We Provide <span>Medical</span> Services That You Can <span>Trust!</span></h1>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed nisl pellentesque, faucibus libero eu, gravida quam. </p>
                                 <div class="button">
-                                    <a href="#" class="btn">Get Appointment</a>
+                                    <a href="#" class="btn">Get a Quote Now!</a>
                                     <a href="#" class="btn primary">About Us</a>
                                 </div>
                             </div>
@@ -177,7 +177,7 @@
                                 <h1>We Provide <span>Medical</span> Services That You Can <span>Trust!</span></h1>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed nisl pellentesque, faucibus libero eu, gravida quam. </p>
                                 <div class="button">
-                                    <a href="#" class="btn">Get Appointment</a>
+                                    <a href="#" class="btn">Get a Quote Now!</a>
                                     <a href="#" class="btn primary">Conatct Now</a>
                                 </div>
                             </div>
@@ -305,117 +305,117 @@
     <!--/ End Feautes -->
 
     <!-- Start Fun-facts -->
-    <div id="fun-facts" class="fun-facts section overlay">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-12">
-                    <!-- Start Single Fun -->
-                    <div class="single-fun">
-                        <i class="icofont icofont-home"></i>
-                        <div class="content">
-                            <span class="counter">3468</span>
-                            <p>Hospital Rooms</p>
-                        </div>
-                    </div>
-                    <!-- End Single Fun -->
-                </div>
-                <div class="col-lg-3 col-md-6 col-12">
-                    <!-- Start Single Fun -->
-                    <div class="single-fun">
-                        <i class="icofont icofont-user-alt-3"></i>
-                        <div class="content">
-                            <span class="counter">557</span>
-                            <p>Specialist Doctors</p>
-                        </div>
-                    </div>
-                    <!-- End Single Fun -->
-                </div>
-                <div class="col-lg-3 col-md-6 col-12">
-                    <!-- Start Single Fun -->
-                    <div class="single-fun">
-                        <i class="icofont-simple-smile"></i>
-                        <div class="content">
-                            <span class="counter">4379</span>
-                            <p>Happy Patients</p>
-                        </div>
-                    </div>
-                    <!-- End Single Fun -->
-                </div>
-                <div class="col-lg-3 col-md-6 col-12">
-                    <!-- Start Single Fun -->
-                    <div class="single-fun">
-                        <i class="icofont icofont-table"></i>
-                        <div class="content">
-                            <span class="counter">32</span>
-                            <p>Years of Experience</p>
-                        </div>
-                    </div>
-                    <!-- End Single Fun -->
-                </div>
-            </div>
-        </div>
-    </div>
+{{--    <div id="fun-facts" class="fun-facts section overlay">--}}
+{{--        <div class="container">--}}
+{{--            <div class="row">--}}
+{{--                <div class="col-lg-3 col-md-6 col-12">--}}
+{{--                    <!-- Start Single Fun -->--}}
+{{--                    <div class="single-fun">--}}
+{{--                        <i class="icofont icofont-home"></i>--}}
+{{--                        <div class="content">--}}
+{{--                            <span class="counter">3468</span>--}}
+{{--                            <p>Hospital Rooms</p>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <!-- End Single Fun -->--}}
+{{--                </div>--}}
+{{--                <div class="col-lg-3 col-md-6 col-12">--}}
+{{--                    <!-- Start Single Fun -->--}}
+{{--                    <div class="single-fun">--}}
+{{--                        <i class="icofont icofont-user-alt-3"></i>--}}
+{{--                        <div class="content">--}}
+{{--                            <span class="counter">557</span>--}}
+{{--                            <p>Specialist Doctors</p>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <!-- End Single Fun -->--}}
+{{--                </div>--}}
+{{--                <div class="col-lg-3 col-md-6 col-12">--}}
+{{--                    <!-- Start Single Fun -->--}}
+{{--                    <div class="single-fun">--}}
+{{--                        <i class="icofont-simple-smile"></i>--}}
+{{--                        <div class="content">--}}
+{{--                            <span class="counter">4379</span>--}}
+{{--                            <p>Happy Patients</p>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <!-- End Single Fun -->--}}
+{{--                </div>--}}
+{{--                <div class="col-lg-3 col-md-6 col-12">--}}
+{{--                    <!-- Start Single Fun -->--}}
+{{--                    <div class="single-fun">--}}
+{{--                        <i class="icofont icofont-table"></i>--}}
+{{--                        <div class="content">--}}
+{{--                            <span class="counter">32</span>--}}
+{{--                            <p>Years of Experience</p>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <!-- End Single Fun -->--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
     <!--/ End Fun-facts -->
 
     <!-- Start Why choose -->
-    <section class="why-choose section" >
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title">
-                        <h2>We Offer Different Services To Improve Your Health</h2>
-                        <img src="img/section-img.png" alt="#">
-                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 col-12">
-                    <!-- Start Choose Left -->
-                    <div class="choose-left">
-                        <h3>Who We Are</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pharetra antege vel est lobortis, a commodo magna rhoncus. In quis nisi non emet quam pharetra commodo. </p>
-                        <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <ul class="list">
-                                    <li><i class="fa fa-caret-right"></i>Maecenas vitae luctus nibh. </li>
-                                    <li><i class="fa fa-caret-right"></i>Duis massa massa.</li>
-                                    <li><i class="fa fa-caret-right"></i>Aliquam feugiat interdum.</li>
-                                </ul>
-                            </div>
-                            <div class="col-lg-6">
-                                <ul class="list">
-                                    <li><i class="fa fa-caret-right"></i>Maecenas vitae luctus nibh. </li>
-                                    <li><i class="fa fa-caret-right"></i>Duis massa massa.</li>
-                                    <li><i class="fa fa-caret-right"></i>Aliquam feugiat interdum.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Choose Left -->
-                </div>
-                <div class="col-lg-6 col-12">
-                    <!-- Start Choose Rights -->
-                    <div class="choose-right">
-                        <div class="video-image">
-                            <!-- Video Animation -->
-                            <div class="promo-video">
-                                <div class="waves-block">
-                                    <div class="waves wave-1"></div>
-                                    <div class="waves wave-2"></div>
-                                    <div class="waves wave-3"></div>
-                                </div>
-                            </div>
-                            <!--/ End Video Animation -->
-                            <a href="https://www.youtube.com/watch?v=RFVXy6CRVR4" class="video video-popup mfp-iframe"><i class="fa fa-play"></i></a>
-                        </div>
-                    </div>
-                    <!-- End Choose Rights -->
-                </div>
-            </div>
-        </div>
-    </section>
+{{--    <section class="why-choose section" >--}}
+{{--        <div class="container">--}}
+{{--            <div class="row">--}}
+{{--                <div class="col-lg-12">--}}
+{{--                    <div class="section-title">--}}
+{{--                        <h2>We Offer Different Services To Improve Your Health</h2>--}}
+{{--                        <img src="img/section-img.png" alt="#">--}}
+{{--                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="row">--}}
+{{--                <div class="col-lg-6 col-12">--}}
+{{--                    <!-- Start Choose Left -->--}}
+{{--                    <div class="choose-left">--}}
+{{--                        <h3>Who We Are</h3>--}}
+{{--                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pharetra antege vel est lobortis, a commodo magna rhoncus. In quis nisi non emet quam pharetra commodo. </p>--}}
+{{--                        <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>--}}
+{{--                        <div class="row">--}}
+{{--                            <div class="col-lg-6">--}}
+{{--                                <ul class="list">--}}
+{{--                                    <li><i class="fa fa-caret-right"></i>Maecenas vitae luctus nibh. </li>--}}
+{{--                                    <li><i class="fa fa-caret-right"></i>Duis massa massa.</li>--}}
+{{--                                    <li><i class="fa fa-caret-right"></i>Aliquam feugiat interdum.</li>--}}
+{{--                                </ul>--}}
+{{--                            </div>--}}
+{{--                            <div class="col-lg-6">--}}
+{{--                                <ul class="list">--}}
+{{--                                    <li><i class="fa fa-caret-right"></i>Maecenas vitae luctus nibh. </li>--}}
+{{--                                    <li><i class="fa fa-caret-right"></i>Duis massa massa.</li>--}}
+{{--                                    <li><i class="fa fa-caret-right"></i>Aliquam feugiat interdum.</li>--}}
+{{--                                </ul>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <!-- End Choose Left -->--}}
+{{--                </div>--}}
+{{--                <div class="col-lg-6 col-12">--}}
+{{--                    <!-- Start Choose Rights -->--}}
+{{--                    <div class="choose-right">--}}
+{{--                        <div class="video-image">--}}
+{{--                            <!-- Video Animation -->--}}
+{{--                            <div class="promo-video">--}}
+{{--                                <div class="waves-block">--}}
+{{--                                    <div class="waves wave-1"></div>--}}
+{{--                                    <div class="waves wave-2"></div>--}}
+{{--                                    <div class="waves wave-3"></div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <!--/ End Video Animation -->--}}
+{{--                            <a href="https://www.youtube.com/watch?v=RFVXy6CRVR4" class="video video-popup mfp-iframe"><i class="fa fa-play"></i></a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <!-- End Choose Rights -->--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </section>--}}
     <!--/ End Why choose -->
 
     <!-- Start Call to action -->
@@ -494,75 +494,75 @@
     <!--/ End portfolio -->
 
     <!-- Start service -->
-    <section class="services section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title">
-                        <h2>We Offer Different Services To Improve Your Health</h2>
-                        <img src="img/section-img.png" alt="#">
-                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-12">
-                    <!-- Start Single Service -->
-                    <div class="single-service">
-                        <i class="icofont icofont-prescription"></i>
-                        <h4><a href="service-details.html">General Treatment</a></h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>
-                    </div>
-                    <!-- End Single Service -->
-                </div>
-                <div class="col-lg-4 col-md-6 col-12">
-                    <!-- Start Single Service -->
-                    <div class="single-service">
-                        <i class="icofont icofont-tooth"></i>
-                        <h4><a href="service-details.html">Teeth Whitening</a></h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>
-                    </div>
-                    <!-- End Single Service -->
-                </div>
-                <div class="col-lg-4 col-md-6 col-12">
-                    <!-- Start Single Service -->
-                    <div class="single-service">
-                        <i class="icofont icofont-heart-alt"></i>
-                        <h4><a href="service-details.html">Heart Surgery</a></h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>
-                    </div>
-                    <!-- End Single Service -->
-                </div>
-                <div class="col-lg-4 col-md-6 col-12">
-                    <!-- Start Single Service -->
-                    <div class="single-service">
-                        <i class="icofont icofont-listening"></i>
-                        <h4><a href="service-details.html">Ear Treatment</a></h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>
-                    </div>
-                    <!-- End Single Service -->
-                </div>
-                <div class="col-lg-4 col-md-6 col-12">
-                    <!-- Start Single Service -->
-                    <div class="single-service">
-                        <i class="icofont icofont-eye-alt"></i>
-                        <h4><a href="service-details.html">Vision Problems</a></h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>
-                    </div>
-                    <!-- End Single Service -->
-                </div>
-                <div class="col-lg-4 col-md-6 col-12">
-                    <!-- Start Single Service -->
-                    <div class="single-service">
-                        <i class="icofont icofont-blood"></i>
-                        <h4><a href="service-details.html">Blood Transfusion</a></h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>
-                    </div>
-                    <!-- End Single Service -->
-                </div>
-            </div>
-        </div>
-    </section>
+{{--    <section class="services section">--}}
+{{--        <div class="container">--}}
+{{--            <div class="row">--}}
+{{--                <div class="col-lg-12">--}}
+{{--                    <div class="section-title">--}}
+{{--                        <h2>We Offer Different Services To Improve Your Health</h2>--}}
+{{--                        <img src="img/section-img.png" alt="#">--}}
+{{--                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="row">--}}
+{{--                <div class="col-lg-4 col-md-6 col-12">--}}
+{{--                    <!-- Start Single Service -->--}}
+{{--                    <div class="single-service">--}}
+{{--                        <i class="icofont icofont-prescription"></i>--}}
+{{--                        <h4><a href="service-details.html">General Treatment</a></h4>--}}
+{{--                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>--}}
+{{--                    </div>--}}
+{{--                    <!-- End Single Service -->--}}
+{{--                </div>--}}
+{{--                <div class="col-lg-4 col-md-6 col-12">--}}
+{{--                    <!-- Start Single Service -->--}}
+{{--                    <div class="single-service">--}}
+{{--                        <i class="icofont icofont-tooth"></i>--}}
+{{--                        <h4><a href="service-details.html">Teeth Whitening</a></h4>--}}
+{{--                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>--}}
+{{--                    </div>--}}
+{{--                    <!-- End Single Service -->--}}
+{{--                </div>--}}
+{{--                <div class="col-lg-4 col-md-6 col-12">--}}
+{{--                    <!-- Start Single Service -->--}}
+{{--                    <div class="single-service">--}}
+{{--                        <i class="icofont icofont-heart-alt"></i>--}}
+{{--                        <h4><a href="service-details.html">Heart Surgery</a></h4>--}}
+{{--                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>--}}
+{{--                    </div>--}}
+{{--                    <!-- End Single Service -->--}}
+{{--                </div>--}}
+{{--                <div class="col-lg-4 col-md-6 col-12">--}}
+{{--                    <!-- Start Single Service -->--}}
+{{--                    <div class="single-service">--}}
+{{--                        <i class="icofont icofont-listening"></i>--}}
+{{--                        <h4><a href="service-details.html">Ear Treatment</a></h4>--}}
+{{--                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>--}}
+{{--                    </div>--}}
+{{--                    <!-- End Single Service -->--}}
+{{--                </div>--}}
+{{--                <div class="col-lg-4 col-md-6 col-12">--}}
+{{--                    <!-- Start Single Service -->--}}
+{{--                    <div class="single-service">--}}
+{{--                        <i class="icofont icofont-eye-alt"></i>--}}
+{{--                        <h4><a href="service-details.html">Vision Problems</a></h4>--}}
+{{--                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>--}}
+{{--                    </div>--}}
+{{--                    <!-- End Single Service -->--}}
+{{--                </div>--}}
+{{--                <div class="col-lg-4 col-md-6 col-12">--}}
+{{--                    <!-- Start Single Service -->--}}
+{{--                    <div class="single-service">--}}
+{{--                        <i class="icofont icofont-blood"></i>--}}
+{{--                        <h4><a href="service-details.html">Blood Transfusion</a></h4>--}}
+{{--                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>--}}
+{{--                    </div>--}}
+{{--                    <!-- End Single Service -->--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </section>--}}
     <!--/ End service -->
 
     <!-- Pricing Table -->
@@ -571,7 +571,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>Affordable Treatment Plans</h2>
+                        <h2>Affordable Plans</h2>
                         <img src="img/section-img.png" alt="#">
                         <p>Choose the plan that suits your needs and budget. Quality care at a reasonable price.</p>
                     </div>
@@ -967,7 +967,7 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-12">
                         <div class="copyright-content">
-                            <p>© Copyright 2018  |  All Rights Reserved by <a href="https://www.wpthemesgrid.com" target="_blank">wpthemesgrid.com</a> </p>
+                            <p>© Copyright 2024  |  All Rights Reserved by PinoyMedLink </p>
                         </div>
                     </div>
                 </div>
