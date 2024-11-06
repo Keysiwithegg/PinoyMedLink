@@ -97,15 +97,13 @@ r -->
                     <!-- Search -->
                     <div class="navbar-nav align-items-center">
                         <div class="nav-item d-flex align-items-center">
-                            <i class="bx bx-search fs-4 lh-0"></i>
-                            <input
-                                type="text"
-                                class="form-control border-0 shadow-none"
-                                placeholder="Search..."
-                                aria-label="Search..."
-                            />
+                            <div class="alert alert-info d-flex align-items-center mb-0" role="alert" style="font-weight: 500; padding: 8px 15px;">
+                                <i class="bx bx-info-circle me-2" style="font-size: 1.25rem;"></i>
+                                <span>You are currently on the <strong>Free Tier</strong>. <a href="#" class="text-primary">Upgrade for more features</a>.</span>
+                            </div>
                         </div>
                     </div>
+
                     <!-- /Search -->
 
                     <ul class="navbar-nav flex-row align-items-center ms-auto">
@@ -132,11 +130,19 @@ r -->
                                                 <span class="fw-semibold d-block">{{auth()->user()->name}}</span>
                                                 <small class="text-muted">Admin</small>
                                             </div>
+
                                         </div>
                                     </a>
                                 </li>
                                 <li>
                                     <div class="dropdown-divider"></div>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item" href="{{route('billing')}}">
+                                        <i class="bx bx-credit-card me-2"></i>
+                                        <span class="align-middle">Billing</span>
+                                    </a>
                                 </li>
 
                                 <li>

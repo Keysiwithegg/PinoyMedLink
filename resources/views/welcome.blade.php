@@ -587,7 +587,7 @@
                             </div>
                             <h4 class="title">Free Tier</h4>
                             <div class="price">
-                                <p class="amount">$0</p>
+                                <p class="amount">₱0</p>
                             </div>
                         </div>
                         <ul class="table-list">
@@ -611,7 +611,7 @@
                             </div>
                             <h4 class="title">Starter Tier</h4>
                             <div class="price">
-                                <p class="amount">$100</p>
+                                <p class="amount">₱1500</p>
                             </div>
                         </div>
                         <ul class="table-list">
@@ -635,7 +635,7 @@
                             </div>
                             <h4 class="title">Professional Tier</h4>
                             <div class="price">
-                                <p class="amount">$500</p>
+                                <p class="amount">₱5000</p>
                             </div>
                         </div>
                         <ul class="table-list">

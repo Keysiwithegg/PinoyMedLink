@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Hospital extends Model
 {
+    use HasFactory;
     protected $table = 'hospitals'; // Correct table name
     protected $primaryKey = 'hospital_id'; // Correct primary key
 

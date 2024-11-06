@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('first_name', 50);
             $table->string('last_name', 50);
             $table->string('specialty', 100)->nullable();
-            $table->string('contact_number', 15)->nullable();
+            $table->string('contact_number', 20)->nullable();
             $table->string('email', 100)->nullable();
             $table->unsignedBigInteger('hospital_id'); // Add this line
             $table->unsignedBigInteger('user_id'); // Add this line

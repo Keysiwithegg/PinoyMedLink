@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id('hospital_id');
             $table->string('hospital_name', 100);
             $table->text('address');
-            $table->string('contact_number', 15)->nullable();
+            $table->string('contact_number', 20)->nullable();
             $table->string('email', 100)->nullable();
-            $table->unsignedInteger('subscription_id')->nullable();
+            $table->uuid('subscription_id')->nullable(); // Change this line
             $table->enum('subscription_type', ['Basic', 'Starter', 'Enterprise'])->default('Basic');
             $table->timestamps();
         });

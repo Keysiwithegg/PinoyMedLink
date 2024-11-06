@@ -16,10 +16,25 @@ class DoctorPrescriptionRecordController extends Controller
         return view('doctor.patient-prescription.index');
     }
 
-    public function dataTable()
+    public function dataTable(Request $request)
     {
         try {
-            $records = Prescription::with('medicalRecord')->get();
+            $query = Prescription::with('medicalRecord');
+
+            // Apply search filter
+            if ($search = $request->input('search.value')) {
+                $query->whereHas('medicalRecord', function ($q) use ($search) {
+                    $q->where('diagnosis', 'like', "%{$search}%");
+                })->orWhere('medication_name', 'like', "%{$search}%");
+            }
+
+            // Get total records count
+            $totalRecords = $query->count();
+
+            // Apply pagination
+            $records = $query->skip($request->input('start'))->take($request->input('length'))->get();
+
+            // Prepare data for DataTables
             $data = $records->map(function ($record) {
                 return [
                     'prescription_id' => $record->prescription_id,
@@ -30,7 +45,13 @@ class DoctorPrescriptionRecordController extends Controller
                     'duration' => $record->duration,
                 ];
             });
-            return response()->json(['data' => $data]);
+
+            return response()->json([
+                'draw' => $request->input('draw'),
+                'recordsTotal' => $totalRecords,
+                'recordsFiltered' => $totalRecords,
+                'data' => $data,
+            ]);
         } catch (\Exception $e) {
             Log::error('Error fetching medical records: ' . $e->getMessage());
             return response()->json(['message' => 'An error occurred while fetching the medical records.'], 500);

@@ -28,7 +28,7 @@ Route::get('/patient/record/dataTable', [PatientRecordController::class, 'dataTa
 Route::post('/patient/record/store', [PatientRecordController::class, 'store'])->name('patient.record.store');
 Route::get('/doctors', [PatientRecordController::class, 'getDoctors'])->name('doctors.list');
 
-Route::get('patient/index', [PatientAppointmentController::class, 'index'])->name('patient.index');
+Route::get('/patient/index', [PatientAppointmentController::class, 'index'])->name('patient.index');
 
 
 Route::get('/patient/prescription', [PatientPrescriptionController::class, 'index'])->name('patient.prescription.index');
@@ -79,3 +79,13 @@ Route::get('/patient/record/{id}', [PatientRecordController::class, 'show'])->na
 Route::get('/patient/record/{id}/edit', [PatientRecordController::class, 'edit'])->name('patient.record.edit');
 Route::put('/patient/record/{id}', [PatientRecordController::class, 'update'])->name('patient.record.update');
 Route::delete('/patient/record/{id}', [PatientRecordController::class, 'destroy'])->name('patient.record.destroy');
+
+
+Route::get('/billing', function () {
+    return view('doctor.billing');
+})->name('billing');
+
+
+Route::get('/checkout', function () {
+    return view('doctor.checkout');
+})->name('checkout');

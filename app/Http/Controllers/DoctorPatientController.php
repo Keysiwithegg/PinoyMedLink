@@ -18,7 +18,11 @@ class DoctorPatientController extends Controller
 
     public function dataTable()
     {
-        $patients = Doctor::find(Auth::id())->patients()->get();
+        $doctor = Doctor::find(Auth::id());
+        if (!$doctor) {
+            return response()->json(['data' => [], 'message' => 'Doctor not found.'], 404);
+        }
+        $patients = $doctor->patients()->get();
         return response()->json(['data' => $patients]);
     }
 

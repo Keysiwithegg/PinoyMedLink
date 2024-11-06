@@ -36,7 +36,17 @@
             $('#prescriptionsTable').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{{ route('doctor.patient.prescription.dataTable') }}',
+                ajax: {
+                    url: '{{ route('doctor.patient.prescription.dataTable') }}',
+                    type: 'GET',
+                    dataSrc: function (json) {
+                        if (json.message) {
+                            Swal.fire('Error', json.message, 'error');
+                            return [];
+                        }
+                        return json.data;
+                    }
+                },
                 columns: [
                     { data: 'prescription_id', name: 'prescription_id' },
                     { data: 'diagnosis', name: 'diagnosis' },
@@ -65,6 +75,8 @@
                     }
                 ]
             });
+        });
+
 
             $('#addRecord').on('click', function() {
                 $.get('{{ route("doctor.getPatients") }}').done(function(response) {
@@ -153,7 +165,7 @@
                     Swal.fire('Error', 'Unable to fetch patients.', 'error');
                 });
             });
-        });
+
 
         // View Record functionality
         function viewRecord(prescriptionId) {
