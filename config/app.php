@@ -195,6 +195,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+
+        jeremykenedy\laravel2step\laravel2stepServiceProvider::class,
+
     ],
 
     /*

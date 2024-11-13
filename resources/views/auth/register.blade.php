@@ -5,74 +5,143 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header bg-primary text-white">{{ __('Hospital Registration') }}</div>
+                    <div class="card-header">{{ __('Patient Registration') }}</div>
 
                     <div class="card-body">
-                        <div class="progress mb-4">
-                            <div id="progressBar" class="progress-bar progress-bar-striped progress-bar-animated bg-info" style="width: 33%;"></div>
-                        </div>
-
-                        <form id="multiStepForm" method="POST" action="{{ route('register') }}">
+                        <form method="POST" action="{{ route('register') }}">
                             @csrf
-                            <!-- Add hidden field for subscription type -->
-                            <input type="hidden" id="subscription_type" name="subscription_type" value="{{ request('subscription_type') }}">
-                            <!-- Step 1: User Details -->
-                            <div class="form-step" id="step-1">
-                                <h4><i class="fas fa-user"></i> User Details</h4>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="name" placeholder="Name" required>
+
+                            <!-- Remove the name field block -->
+
+                            <div class="row mb-3">
+                                <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+
+                                    @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control" name="email" placeholder="Email" required>
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control" name="password" placeholder="Password" required>
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control" name="password_confirmation" placeholder="Confirm Password" required>
-                                </div>
-                                <button type="button" class="btn btn-primary" onclick="nextStep(2)">Next</button>
                             </div>
 
-                            <!-- Step 2: Hospital Details -->
-                            <div class="form-step" id="step-2" style="display: none;">
-                                <h4><i class="fas fa-hospital"></i> Hospital Details</h4>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="hospital_name" placeholder="Hospital Name" required>
+                            <div class="row mb-3">
+                                <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                                    @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="address" placeholder="Address" required>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="contact_number" placeholder="Contact Number" required>
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control" name="hospital_email" placeholder="Hospital Email" required>
-                                </div>
-                                <button type="button" class="btn btn-secondary" onclick="prevStep(1)">Previous</button>
-                                <button type="button" class="btn btn-primary" onclick="nextStep(3)">Next</button>
                             </div>
 
-                            <!-- Step 3: Doctor Details -->
-                            <div class="form-step" id="step-3" style="display: none;">
-                                <h4><i class="fas fa-user-md"></i> Doctor Details</h4>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="first_name" placeholder="Doctor First Name" required>
+                            <div class="row mb-3">
+                                <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                                 </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="last_name" placeholder="Doctor Last Name" required>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="first_name" class="col-md-4 col-form-label text-md-end">{{ __('First Name') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="first_name" type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}" required autocomplete="first_name">
+
+                                    @error('first_name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="specialty" placeholder="Specialty" required>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="last_name" class="col-md-4 col-form-label text-md-end">{{ __('Last Name') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="last_name" type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="{{ old('last_name') }}" required autocomplete="last_name">
+
+                                    @error('last_name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="doctor_contact_number" placeholder="Doctor Contact Number" required>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="date_of_birth" class="col-md-4 col-form-label text-md-end">{{ __('Date of Birth') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="date_of_birth" type="date" class="form-control @error('date_of_birth') is-invalid @enderror" name="date_of_birth" value="{{ old('date_of_birth') }}" required autocomplete="date_of_birth">
+
+                                    @error('date_of_birth')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control" name="doctor_email" placeholder="Doctor Email" required>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="gender" class="col-md-4 col-form-label text-md-end">{{ __('Gender') }}</label>
+
+                                <div class="col-md-6">
+                                    <select id="gender" class="form-control @error('gender') is-invalid @enderror" name="gender" required>
+                                        <option value="male" {{ old('gender') == 'male' ? 'selected' : '' }}>Male</option>
+                                        <option value="female" {{ old('gender') == 'female' ? 'selected' : '' }}>Female</option>
+                                    </select>
+
+                                    @error('gender')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
-                                <button type="button" class="btn btn-secondary" onclick="prevStep(2)">Previous</button>
-                                <button type="submit" class="btn btn-success">Register</button>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="contact_number" class="col-md-4 col-form-label text-md-end">{{ __('Contact Number') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="contact_number" type="text" class="form-control @error('contact_number') is-invalid @enderror" name="contact_number" value="{{ old('contact_number') }}" required autocomplete="contact_number">
+
+                                    @error('contact_number')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="address" class="col-md-4 col-form-label text-md-end">{{ __('Address') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address">
+
+                                    @error('address')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-0">
+                                <div class="col-md-8 offset-md-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        {{ __('Register') }}
+                                    </button>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -80,29 +149,4 @@
             </div>
         </div>
     </div>
-
-    <script>
-        function nextStep(step) {
-            document.querySelectorAll('.form-step').forEach(function (step) {
-                step.style.display = 'none';
-            });
-            document.getElementById('step-' + step).style.display = 'block';
-            updateProgressBar(step);
-        }
-
-        function prevStep(step) {
-            document.querySelectorAll('.form-step').forEach(function (step) {
-                step.style.display = 'none';
-            });
-            document.getElementById('step-' + step).style.display = 'block';
-            updateProgressBar(step);
-        }
-
-        function updateProgressBar(step) {
-            let progressBar = document.getElementById('progressBar');
-            if (step === 1) progressBar.style.width = '33%';
-            if (step === 2) progressBar.style.width = '66%';
-            if (step === 3) progressBar.style.width = '100%';
-        }
-    </script>
 @endsection

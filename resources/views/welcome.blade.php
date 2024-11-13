@@ -35,6 +35,10 @@
                 scroll-behavior: smooth;
             }
 
+            .get-quote {
+                gap: 20px; /* or any specific pixel value you want */
+            }
+
         </style>
         <!-- Medipro CSS -->
         <link rel="stylesheet" href="{{ asset('css/normalize.css') }}">
@@ -117,8 +121,9 @@
                             <!--/ End Main Menu -->
                         </div>
                         <div class="col-lg-2 col-12">
-                            <div class="get-quote">
-                                <a href="#pricing-table" class="btn">Register Now!</a>
+                            <div class="get-quote d-flex gap-3">
+                                <a href="{{route('login')}}" class="btn">Login</a>
+                                <a href="{{route('register')}}" class="btn">Register</a>
                             </div>
                         </div>
                     </div>
@@ -565,98 +570,7 @@
 {{--    </section>--}}
     <!--/ End service -->
 
-    <!-- Pricing Table -->
-    <section id="pricing-table" class="pricing-table section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title">
-                        <h2>Affordable Plans</h2>
-                        <img src="img/section-img.png" alt="#">
-                        <p>Choose the plan that suits your needs and budget. Quality care at a reasonable price.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <!-- Free Tier -->
-                <div class="col-lg-4 col-md-12 col-12">
-                    <div class="single-table">
-                        <div class="table-head">
-                            <div class="icon">
-                                <i class="icofont icofont-tag"></i>
-                            </div>
-                            <h4 class="title">Free Tier</h4>
-                            <div class="price">
-                                <p class="amount">₱0</p>
-                            </div>
-                        </div>
-                        <ul class="table-list">
-                            <li><i class="icofont icofont-ui-check"></i>1 doctor, 1 nurse</li>
-                            <li><i class="icofont icofont-ui-check"></i>Up to 20 patients</li>
-                            <li><i class="icofont icofont-ui-check"></i>Basic records management</li>
-                            <li><i class="icofont icofont-ui-check"></i>Appointment scheduling</li>
-                            <li><i class="icofont icofont-ui-check"></i>Email support</li>
-                        </ul>
-                        <div class="table-bottom">
-                            <a class="btn" href="{{ route('register', ['subscription_type' => 'Basic']) }}">Book Now</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Starter Tier -->
-                <div class="col-lg-4 col-md-12 col-12">
-                    <div class="single-table">
-                        <div class="table-head">
-                            <div class="icon">
-                                <i class="icofont icofont-rocket"></i>
-                            </div>
-                            <h4 class="title">Starter Tier</h4>
-                            <div class="price">
-                                <p class="amount">₱1500</p>
-                            </div>
-                        </div>
-                        <ul class="table-list">
-                            <li><i class="icofont icofont-ui-check"></i>3 doctors, 3 nurses</li>
-                            <li><i class="icofont icofont-ui-check"></i>Up to 100 patients</li>
-                            <li><i class="icofont icofont-ui-check"></i>All Free Tier features</li>
-                            <li><i class="icofont icofont-ui-check"></i>Prescription management</li>
-                            <li><i class="icofont icofont-ui-check"></i>Email and chat support</li>
-                        </ul>
-                        <div class="table-bottom">
-                            <a class="btn" href="{{ route('register', ['subscription_type' => 'Starter Tier']) }}">Book Now</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Professional Tier -->
-                <div class="col-lg-4 col-md-12 col-12">
-                    <div class="single-table">
-                        <div class="table-head">
-                            <div class="icon">
-                                <i class="icofont icofont-star"></i>
-                            </div>
-                            <h4 class="title">Professional Tier</h4>
-                            <div class="price">
-                                <p class="amount">₱5000</p>
-                            </div>
-                        </div>
-                        <ul class="table-list">
-                            <li><i class="icofont icofont-ui-check"></i>10 doctors, 10 nurses</li>
-                            <li><i class="icofont icofont-ui-check"></i>Up to 500 patients</li>
-                            <li><i class="icofont icofont-ui-check"></i>All Starter Tier features</li>
-                            <li><i class="icofont icofont-ui-check"></i>Advanced telehealth</li>
-                            <li><i class="icofont icofont-ui-check"></i>Phone and chat support</li>
-                        </ul>
-                        <div class="table-bottom">
-                            <a class="btn" href="{{ route('register', ['subscription_type' => 'Enterprise']) }}">Book Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-
-
-    <!--/ End Pricing Table -->
 
 
 

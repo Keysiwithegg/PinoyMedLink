@@ -16,8 +16,16 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::group(['middleware' => ['twostep']], function () {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/patient/index', [PatientAppointmentController::class, 'index'])->name('patient.index');
+});
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::post('/patient/appointment/store', [PatientAppointmentController::class, 'store'])->name('patient.appointment.store');
+
+
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [RegisterController::class, 'register']);
 
@@ -27,8 +35,6 @@ Route::get('/patient/record', [PatientRecordController::class, 'index'])->name('
 Route::get('/patient/record/dataTable', [PatientRecordController::class, 'dataTable'])->name('patient.record.dataTable');
 Route::post('/patient/record/store', [PatientRecordController::class, 'store'])->name('patient.record.store');
 Route::get('/doctors', [PatientRecordController::class, 'getDoctors'])->name('doctors.list');
-
-Route::get('/patient/index', [PatientAppointmentController::class, 'index'])->name('patient.index');
 
 
 Route::get('/patient/prescription', [PatientPrescriptionController::class, 'index'])->name('patient.prescription.index');
