@@ -95,14 +95,14 @@ r -->
 
                 <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
                     <!-- Search -->
-                    <div class="navbar-nav align-items-center">
-                        <div class="nav-item d-flex align-items-center">
-                            <div class="alert alert-info d-flex align-items-center mb-0" role="alert" style="font-weight: 500; padding: 8px 15px;">
-                                <i class="bx bx-info-circle me-2" style="font-size: 1.25rem;"></i>
-                                <span>You are currently on the <strong>Free Tier</strong>. <a href="#" class="text-primary">Upgrade for more features</a>.</span>
-                            </div>
-                        </div>
-                    </div>
+{{--                    <div class="navbar-nav align-items-center">--}}
+{{--                        <div class="nav-item d-flex align-items-center">--}}
+{{--                            <div class="alert alert-info d-flex align-items-center mb-0" role="alert" style="font-weight: 500; padding: 8px 15px;">--}}
+{{--                                <i class="bx bx-info-circle me-2" style="font-size: 1.25rem;"></i>--}}
+{{--                                <span>You are currently on the <strong>Free Tier</strong>. <a href="#" class="text-primary">Upgrade for more features</a>.</span>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
                     <!-- /Search -->
 
