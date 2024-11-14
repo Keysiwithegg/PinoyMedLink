@@ -1,6 +1,5 @@
 @extends('layouts.app')
 
-
 @section('content')
     <div class="container-xxl flex-grow-1 container-p-y">
         <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Home /</span> Medical Records</h4>
@@ -58,13 +57,13 @@
                             return `
                         <div class="d-flex justify-content-around">
                             <a href="#" class="btn btn-info btn-sm mx-1" title="View" onclick="viewRecord(${row.record_id})">
-                                <i class='bx bx-show'></i>
+                                <i class="bx bx-show"></i>
                             </a>
                             <a href="#" class="btn btn-warning btn-sm mx-1" title="Edit" onclick="editRecord(${row.record_id})">
-                                <i class='bx bx-edit'></i>
+                                <i class="bx bx-edit"></i>
                             </a>
                             <a href="#" class="btn btn-danger btn-sm mx-1" title="Delete" onclick="deleteRecord(${row.record_id})">
-                                <i class='bx bx-trash'></i>
+                                <i class="bx bx-trash"></i>
                             </a>
                         </div>`;
                         }
@@ -75,46 +74,48 @@
             $('#addRecord').on('click', function() {
                 $.get('{{ route("doctor.getPatients") }}', function(response) {
                     if (response.data && response.data.length > 0) {
+                        // Sort patients alphabetically by first name and last name
+                        response.data.sort((a, b) => {
+                            const nameA = `${a.first_name} ${a.last_name}`.toLowerCase();
+                            const nameB = `${b.first_name} ${b.last_name}`.toLowerCase();
+                            return nameA.localeCompare(nameB);
+                        });
+
                         let patientOptions = '';
                         response.data.forEach(patient => {
-                            patientOptions += `<li><a class="dropdown-item" href="javascript:void(0);" data-id="${patient.patient_id}">${patient.first_name} ${patient.last_name}</a></li>`;
+                            patientOptions += `<option value="${patient.patient_id}">${patient.first_name} ${patient.last_name}</option>`;
                         });
 
                         Swal.fire({
                             title: 'Add Medical Record',
                             html: `
-                        <div class="mb-3">
-                            <label for="visit_date" class="form-label">Visit Date</label>
-                            <input id="visit_date" class="form-control" type="date" placeholder="Enter visit date">
-                        </div>
-                        <div class="mb-3">
-                            <label for="diagnosis" class="form-label">Diagnosis</label>
-                            <input id="diagnosis" class="form-control" type="text" placeholder="Enter diagnosis">
-                        </div>
-                        <div class="mb-3">
-                            <label for="treatment" class="form-label">Treatment</label>
-                            <input id="treatment" class="form-control" type="text" placeholder="Enter treatment">
-                        </div>
-                        <div class="mb-3">
-                            <label for="notes" class="form-label">Notes</label>
-                            <textarea id="notes" class="form-control" placeholder="Enter notes"></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label for="patient" class="form-label">Patient</label>
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Select Patient
-                                </button>
-                                <ul class="dropdown-menu" id="patientDropdown">
-                                    ${patientOptions}
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="image" class="form-label">Image</label>
-                            <input id="image" class="form-control" type="file">
-                        </div>
-                    `,
+                    <div class="mb-3">
+                        <label for="visit_date" class="form-label">Visit Date</label>
+                        <input id="visit_date" class="form-control" type="date" placeholder="Enter visit date">
+                    </div>
+                    <div class="mb-3">
+                        <label for="diagnosis" class="form-label">Diagnosis</label>
+                        <input id="diagnosis" class="form-control" type="text" placeholder="Enter diagnosis">
+                    </div>
+                    <div class="mb-3">
+                        <label for="treatment" class="form-label">Treatment</label>
+                        <input id="treatment" class="form-control" type="text" placeholder="Enter treatment">
+                    </div>
+                    <div class="mb-3">
+                        <label for="notes" class="form-label">Notes</label>
+                        <textarea id="notes" class="form-control" placeholder="Enter notes"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="patient" class="form-label">Patient</label>
+                        <select id="patient" class="form-control">
+                            ${patientOptions}
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Image</label>
+                        <input id="image" class="form-control" type="file">
+                    </div>
+                `,
                             showCancelButton: true,
                             confirmButtonText: 'Add',
                             preConfirm: () => {
@@ -122,7 +123,7 @@
                                 const diagnosis = $('#diagnosis').val();
                                 const treatment = $('#treatment').val();
                                 const notes = $('#notes').val();
-                                const patient_id = $('#patientDropdown .dropdown-item.active').data('id');
+                                const patient_id = $('#patient').val();
                                 const image = $('#image')[0].files[0];
 
                                 const formData = new FormData();
@@ -131,7 +132,7 @@
                                 formData.append('treatment', treatment);
                                 formData.append('notes', notes);
                                 formData.append('patient_id', patient_id);
-                                formData.append('doctor_id', '{{ Auth::user()->id }}'); // Use logged-in user's doctor_id
+                                formData.append('doctor_id', '{{ Auth::user()->id }}');
                                 if (image) {
                                     formData.append('image', image);
                                 }
@@ -149,12 +150,6 @@
                                     Swal.fire('Error', 'An error occurred while adding the medical record.', 'error');
                                 });
                             }
-                        });
-
-                        $('#patientDropdown .dropdown-item').on('click', function() {
-                            $('#patientDropdown .dropdown-item').removeClass('active');
-                            $(this).addClass('active');
-                            $('.btn-group .dropdown-toggle').text($(this).text());
                         });
                     } else {
                         Swal.fire('Error', 'No patients found.', 'error');
@@ -233,7 +228,6 @@
                     }
                 });
             };
-
 
             window.viewRecord = function(recordId) {
                 $.ajax({

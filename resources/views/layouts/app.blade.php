@@ -138,12 +138,6 @@ r -->
                                     <div class="dropdown-divider"></div>
                                 </li>
 
-                                <li>
-                                    <a class="dropdown-item" href="{{route('billing')}}">
-                                        <i class="bx bx-credit-card me-2"></i>
-                                        <span class="align-middle">Billing</span>
-                                    </a>
-                                </li>
 
                                 <li>
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

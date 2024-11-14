@@ -33,16 +33,16 @@ class DatabaseSeeder extends Seeder
         foreach ($usersWithRole2 as $user) {
             Doctor::factory()->create(['user_id' => $user->id]);
         }
-//
-//        // Create 100 users with role_id = 0
-//        User::factory()->count(100)->create(['role_id' => 0]);
-//
+
+        // Create 100 users with role_id = 0
+        User::factory()->count(100)->create(['role_id' => 0]);
+
 
         $this->call([
-//            PatientsTableSeeder::class,
-//            MedicalRecordsTableSeeder::class,
-//            PrescriptionsTableSeeder::class,
-//            AppointmentsTableSeeder::class,
+            PatientsTableSeeder::class,
+            MedicalRecordsTableSeeder::class,
+            PrescriptionsTableSeeder::class,
+            AppointmentsTableSeeder::class,
         ]);
     }
 }

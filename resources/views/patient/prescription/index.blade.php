@@ -32,7 +32,7 @@
 
             $('#prescriptionsTable').DataTable({
                 processing: true,
-                serverSide: true,
+                serverSide: false,
                 ajax: '{{ route('patient.prescription.dataTable') }}',
                 columns: [
                     { data: 'prescription_id', name: 'prescription_id' },
@@ -54,7 +54,24 @@
                             `;
                         }
                     }
-                ]
+                ],
+                language: {
+                    emptyTable: "No prescriptions available",
+                    info: "Showing _START_ to _END_ of _TOTAL_ entries",
+                    infoEmpty: "Showing 0 to 0 of 0 entries",
+                    infoFiltered: "(filtered from _MAX_ total entries)",
+                    lengthMenu: "Show _MENU_ entries",
+                    loadingRecords: "Loading...",
+                    processing: "Processing...",
+                    search: "Search:",
+                    zeroRecords: "No matching records found",
+                    paginate: {
+                        first: "First",
+                        last: "Last",
+                        next: "Next",
+                        previous: "Previous"
+                    }
+                }
             });
         });
 
@@ -67,7 +84,7 @@
                     Swal.fire({
                         title: 'Prescription Details',
                         html: `
-                            <strong>Diagnosis:</strong> ${record.medical_record.diagnosis}<br>
+                            <strong>Diagnosis:</strong> ${record.diagnosis}<br>
                             <strong>Medication Name:</strong> ${record.medication_name}<br>
                             <strong>Dosage:</strong> ${record.dosage}<br>
                             <strong>Frequency:</strong> ${record.frequency}<br>
