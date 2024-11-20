@@ -117,6 +117,12 @@
                         <input id="duration" class="form-control" type="text" placeholder="Enter duration">
                     </div>
                 `,
+                            customClass: {
+                                container: 'custom-swal-container', // Add this line
+                                popup: 'custom-swal-popup',
+                                confirmButton: 'btn btn-primary',
+                                cancelButton: 'btn btn-secondary'
+                            },
                             showCancelButton: true,
                             confirmButtonText: 'Add',
                             preConfirm: () => {

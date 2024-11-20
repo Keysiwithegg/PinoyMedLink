@@ -64,6 +64,22 @@
     <!-- Template customizer & Theme config files -->
     <script src="{{ asset('dashboard/assets/js/config.js') }}"></script>
 
+
+    <style>
+        .navbar-nav-right {
+            z-index: 1000;
+        }
+
+        /* And for the custom SweetAlert classes */
+        .custom-swal-container {
+            z-index: 9999 !important;
+        }
+
+        .custom-swal-popup {
+            z-index: 10000 !important;
+        }
+    </style>
+
 </head>
 
 <body>
