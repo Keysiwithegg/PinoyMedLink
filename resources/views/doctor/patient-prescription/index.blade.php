@@ -224,6 +224,12 @@
                                     <input id="edit_duration" class="form-control" type="text" value="${record.duration}">
                                 </div>
                             `,
+                        customClass: {
+                            container: 'custom-swal-container', // Add this line
+                            popup: 'custom-swal-popup',
+                            confirmButton: 'btn btn-primary',
+                            cancelButton: 'btn btn-secondary'
+                        },
                         showCancelButton: true,
                         confirmButtonText: 'Update',
                         preConfirm: () => {

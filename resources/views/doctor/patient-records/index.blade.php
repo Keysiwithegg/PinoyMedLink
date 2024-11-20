@@ -195,6 +195,12 @@
                                 <input id="edit_image" class="form-control" type="file">
                             </div>
                         `,
+                            customClass: {
+                                container: 'custom-swal-container', // Add this line
+                                popup: 'custom-swal-popup',
+                                confirmButton: 'btn btn-primary',
+                                cancelButton: 'btn btn-secondary'
+                            },
                             showCancelButton: true,
                             confirmButtonText: 'Update',
                             preConfirm: () => {
@@ -252,7 +258,13 @@
                             <strong>Diagnosis:</strong> ${response.data.diagnosis}<br>
                             <strong>Treatment:</strong> ${response.data.treatment}<br>
                             <strong>Notes:</strong> ${response.data.notes}<br>
-                        `
+                        `,
+                            customClass: {
+                                container: 'custom-swal-container', // Add this line
+                                popup: 'custom-swal-popup',
+                                confirmButton: 'btn btn-primary',
+                                cancelButton: 'btn btn-secondary'
+                            },
                         });
                     },
                     error: function() {

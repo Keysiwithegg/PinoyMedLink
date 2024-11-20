@@ -89,7 +89,13 @@
                             <strong>Dosage:</strong> ${record.dosage}<br>
                             <strong>Frequency:</strong> ${record.frequency}<br>
                             <strong>Duration:</strong> ${record.duration}<br>
-                        `
+                        `,
+                        customClass: {
+                            container: 'custom-swal-container', // Add this line
+                            popup: 'custom-swal-popup',
+                            confirmButton: 'btn btn-primary',
+                            cancelButton: 'btn btn-secondary'
+                        },
                     });
                 },
                 error: function() {
