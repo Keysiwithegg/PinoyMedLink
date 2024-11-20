@@ -6,7 +6,9 @@ use App\Http\Controllers\DoctorPatientRecordController;
 use App\Http\Controllers\DoctorPrescriptionRecordController;
 use App\Http\Controllers\PatientAppointmentController;
 use App\Http\Controllers\PatientPrescriptionController;
+use App\Http\Controllers\PatientProfileController;
 use App\Http\Controllers\PatientRecordController;
+use App\Http\Controllers\DoctorProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
@@ -86,12 +88,8 @@ Route::get('/patient/record/{id}/edit', [PatientRecordController::class, 'edit']
 Route::put('/patient/record/{id}', [PatientRecordController::class, 'update'])->name('patient.record.update');
 Route::delete('/patient/record/{id}', [PatientRecordController::class, 'destroy'])->name('patient.record.destroy');
 
+Route::get('/doctor/profile', [DoctorProfileController::class, 'index'])->name('profile.doctor.index');
+Route::post('/doctor/profile/update', [DoctorProfileController::class, 'update'])->name('profile.doctor.update');
 
-Route::get('/billing', function () {
-    return view('doctor.billing');
-})->name('billing');
-
-
-Route::get('/checkout', function () {
-    return view('doctor.checkout');
-})->name('checkout');
+Route::get('/patient/profile', [PatientProfileController::class, 'index'])->name('profile.patient.index');
+Route::post('/patient/profile/update', [PatientProfileController::class, 'update'])->name('profile.patient.update');
