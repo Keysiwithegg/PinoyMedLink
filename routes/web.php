@@ -74,7 +74,7 @@ Route::group(['middleware' => ['patient.access']], function () {
     Route::get('/patient/record', [PatientRecordController::class, 'index'])->name('patient.record.index');
     Route::get('/patient/record/dataTable', [PatientRecordController::class, 'dataTable'])->name('patient.record.dataTable');
     Route::post('/patient/record/store', [PatientRecordController::class, 'store'])->name('patient.record.store');
-    Route::get('/doctors', [PatientRecordController::class, 'getDoctors'])->name('doctors.list');
+
 
 
     Route::get('/patient/prescription', [PatientPrescriptionController::class, 'index'])->name('patient.prescription.index');
@@ -97,7 +97,7 @@ Route::group(['middleware' => ['patient.access']], function () {
 });
 
 
-
+Route::get('/doctors', [PatientRecordController::class, 'getDoctors'])->name('doctors.list');
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
