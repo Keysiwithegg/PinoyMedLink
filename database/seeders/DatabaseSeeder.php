@@ -20,11 +20,10 @@ class DatabaseSeeder extends Seeder
         //create user
         User::create([
             'name' => 'Admin User',
-            'email' => 'joshua.pardo30@gmail.com',
+            'email' => 'admin@example.com',
             'password' => Hash::make('Test@123'),
             'role_id' => 1,
         ]);
-
 
 
         $hospital = Hospital::create([
