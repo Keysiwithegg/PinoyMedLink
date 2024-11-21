@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminAppointmentController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminDoctorController;
 use App\Http\Controllers\AdminPatientController;
+use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\DoctorAppointmentController;
 use App\Http\Controllers\DoctorPatientController;
 use App\Http\Controllers\DoctorPatientRecordController;
@@ -133,3 +134,6 @@ Route::get('/admin/doctors/{doctor}/edit', [AdminDoctorController::class, 'edit'
 Route::put('/admin/doctors/{doctor}', [AdminDoctorController::class, 'update'])->name('admin.doctors.update');
 Route::delete('/admin/doctors/{doctor}', [AdminDoctorController::class, 'destroy'])->name('admin.doctors.destroy');
 Route::get('/admin/doctors/dataTable', [AdminDoctorController::class, 'dataTable'])->name('admin.doctors.dataTable');
+
+Route::get('/admin/profile', [AdminProfileController::class, 'index'])->name('admin.profile.index');
+Route::put('/admin/profile', [AdminProfileController::class, 'update'])->name('admin.profile.update');

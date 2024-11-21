@@ -64,7 +64,13 @@
                 <nav class="m-header-right">
                     <a href="#" class="add-to-favorite"><i class="fas fa-star"></i></a>
                     @php
-                        $route = auth()->user()->role_id == 0 ? route('patient.index') : (auth()->user()->role_id == 2 ? route('home') : '#');
+                        $route = auth()->user()->role_id == 0
+                            ? route('patient.index')
+                            : (auth()->user()->role_id == 1
+                                ? route('admin.index')
+                                : (auth()->user()->role_id == 2
+                                    ? route('home')
+                                    : '#'));
                     @endphp
 
                     <a href="{{ $route }}"><i class="fas fa-home"></i></a>
