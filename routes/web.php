@@ -104,4 +104,6 @@ Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->na
 Route::post('/register', [RegisterController::class, 'register']);
 
 
+
+
 Route::get('/admin/home', [AdminController::class, 'index'])->name('admin.index');

@@ -33,7 +33,7 @@ class LoginController extends Controller
             case 0:
                 return '/patient/index';
             case 1:
-                return '/';
+                return '/admin/home';
             case 2:
                 return '/home';
             default:

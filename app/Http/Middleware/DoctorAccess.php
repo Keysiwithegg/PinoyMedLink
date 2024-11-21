@@ -24,7 +24,7 @@ class DoctorAccess
             } elseif ($role == 0) {
                 return redirect('/patient/index');
             } elseif ($role == 1) {
-                return redirect('/');
+                return redirect('/admin/home');
             }
         }
 

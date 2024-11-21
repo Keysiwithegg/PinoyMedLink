@@ -133,7 +133,7 @@ r -->
                                                 </div>
                                                 <div class="flex-grow-1">
                                                     <span class="fw-semibold d-block">{{auth()->user()->name}}</span>
-                                                    <small class="text-muted">Doctor</small>
+                                                    <small class="text-muted">Admin Account</small>
                                                 </div>
 
                                             </div>
@@ -144,7 +144,7 @@ r -->
                                     </li>
 
                                     <li>
-                                        <a class="dropdown-item" href="{{route('profile.doctor.index')}}">
+                                        <a class="dropdown-item" href="">
                                             <i class="bx bx-user me-2"></i>
                                             <span class="align-midd le">My Profile</span>
                                         </a>

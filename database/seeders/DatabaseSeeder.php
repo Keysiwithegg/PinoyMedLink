@@ -6,6 +6,7 @@ use App\Models\Hospital;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Doctor;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 
 class DatabaseSeeder extends Seeder
@@ -15,6 +16,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+
+        //create user
+        User::create([
+            'name' => 'Admin User',
+            'email' => 'joshua.pardo30@gmail.com',
+            'password' => Hash::make('Test@123'),
+            'role_id' => 1,
+        ]);
+
+
 
         $hospital = Hospital::create([
             'hospital_name' => 'Laguna Medical Center',

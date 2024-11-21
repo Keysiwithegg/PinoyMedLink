@@ -11,6 +11,12 @@ use Illuminate\Support\Facades\Log;
 
 class PatientAppointmentController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('patient.access');
+    }
     public function index()
     {
         $user = auth()->user();

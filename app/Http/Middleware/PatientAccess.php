@@ -24,7 +24,7 @@ class PatientAccess
             } elseif ($role == 2) {
                 return redirect('/home');
             } elseif ($role == 1) {
-                return redirect('/');
+                return redirect('/admin/home');
             }
         }
 
