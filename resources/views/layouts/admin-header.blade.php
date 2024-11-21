@@ -14,8 +14,8 @@
 
     <ul class="menu-inner py-1">
         <!-- Dashboard -->
-        <li class="menu-item {{ Request::is('home') ? 'active' : '' }}">
-            <a href="" class="menu-link">
+        <li class="menu-item {{ Request::is('admin/home') ? 'active' : '' }}">
+            <a href="{{route('admin.index')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
             </a>
@@ -23,8 +23,8 @@
 
         <!-- Doctor Section -->
         <li class="menu-header small text-uppercase"><span class="menu-header-text">Doctor</span></li>
-        <li class="menu-item {{ Request::is('doctor/appointment') ? 'active' : '' }}">
-            <a href="{{ route('doctor.appointment.index') }}" class="menu-link">
+        <li class="menu-item {{ Request::is('admin/appointments') ? 'active' : '' }}">
+            <a href="{{ route('admin.appointments.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-calendar"></i>
                 <div data-i18n="Appointments">Appointments</div>
             </a>
@@ -33,15 +33,15 @@
         <!-- Patients Section -->
         <li class="menu-header small text-uppercase"><span class="menu-header-text">Patients</span></li>
 
-        <li class="menu-item {{ Request::is('doctor/patient') ? 'active' : '' }}">
-            <a href="{{route('doctor.patient.index')}}" class="menu-link">
+        <li class="menu-item {{ Request::is('admin/patients') ? 'active' : '' }}">
+            <a href="{{route('admin.patients.index')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-user-plus"></i>
                 <div data-i18n="Patient Records">Add Patient</div>
             </a>
         </li>
 
-        <li class="menu-item {{ Request::is('doctor/patient/record') ? 'active' : '' }}">
-            <a href="{{route('doctor.patient.records')}}" class="menu-link">
+        <li class="menu-item {{ Request::is('admin/doctors') ? 'active' : '' }}">
+            <a href="{{route('admin.doctors.index')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-plus-medical"></i> <!-- Changed to a doctor icon -->
                 <div data-i18n="Patient Records">Add Doctor</div>
             </a>
