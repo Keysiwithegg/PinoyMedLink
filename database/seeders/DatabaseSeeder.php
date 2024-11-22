@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Hospital;
+use App\Models\Patient;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Doctor;
@@ -16,25 +17,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-
-        //create user
-        User::create([
-            'name' => 'Admin User',
-            'email' => 'admin@example.com',
-            'password' => Hash::make('Test@123'),
-            'role_id' => 1,
-        ]);
-
-
         $hospital = Hospital::create([
-            'hospital_name' => 'Laguna Medical Center',
-            'address' => '123 Laguna St., Calamba, Laguna',
-            'contact_number' => '09123456789',
-            'email' => 'laguna_medical@example.com',
+            'hospital_name' => 'Tondo Foreshore Super Health Center & Lying-In Clinic',
+            'address' => 'JX76+Q98, Pacheco St.Tondo, 118 Zone 9, Manila, 1013 Metro Manila',
+            'contact_number' => '22545760',
+            'email' => 'medical@example.com',
             'subscription_type' => 'Basic',
         ]);
 
-        Log::info("The hospital id:" . $hospitalId = $hospital->hospital_id);
+
+
+
+
+
 
         // Create 10 users with role_id = 2
         $usersWithRole2 = User::factory()->count(10)->create(['role_id' => 2]);
@@ -53,6 +48,7 @@ class DatabaseSeeder extends Seeder
             MedicalRecordsTableSeeder::class,
             PrescriptionsTableSeeder::class,
             AppointmentsTableSeeder::class,
+            TestAccountSeeder::class
         ]);
     }
 }

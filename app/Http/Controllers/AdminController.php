@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('admin.access'); // Add this line
+    }
+
     public function index()
     {
         $doctorCount = $this->countDoctor();

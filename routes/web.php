@@ -26,6 +26,7 @@ Auth::routes();
 Route::group(['middleware' => ['twostep']], function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/patient/index', [PatientAppointmentController::class, 'index'])->name('patient.index');
+    Route::get('/admin/home', [AdminController::class, 'index'])->name('admin.index');
 });
 
 //doctor
@@ -99,41 +100,48 @@ Route::group(['middleware' => ['patient.access']], function () {
     Route::post('/patient/appointment/store', [PatientAppointmentController::class, 'store'])->name('patient.appointment.store');
 });
 
-Route::get('/doctor/getPatients', [DoctorPatientRecordController::class, 'getPatients'])->name('doctor.getPatients');
-Route::get('/doctors', [PatientRecordController::class, 'getDoctors'])->name('doctors.list');
+
+Route::group(['middleware' => ['admin.access']], function () {
+
+//admin patient
+    Route::get('/admin/patients', [AdminPatientController::class, 'index'])->name('admin.patients.index');
+    Route::get('/admin/patients/data', [AdminPatientController::class, 'dataTable'])->name('admin.patients.data');
+    Route::post('/admin/patients', [AdminPatientController::class, 'store'])->name('admin.patients.store');
+
+
+//admin appointment
+    Route::get('/admin/appointments', [AdminAppointmentController::class, 'index'])->name('admin.appointments.index');
+    Route::post('/admin/appointments', [AdminAppointmentController::class, 'store'])->name('admin.appointments.store');
+    Route::put('/admin/appointments/{id}', [AdminAppointmentController::class, 'update'])->name('admin.appointments.update');
+    Route::get('/admin/appointments/hospital', [AdminAppointmentController::class, 'getHospitalId'])->name('admin.appointment');
+    Route::get('/admin/appointments/all', [AdminAppointmentController::class, 'getAllAppointments'])->name('admin.appointments');
+    Route::get('/admin/appointments/fetch/{id}', [AdminAppointmentController::class, 'fetch'])->name('admin.appointment.fetch');
+
+
+    Route::get('/admin/doctors', [AdminDoctorController::class, 'index'])->name('admin.doctors.index');
+    Route::get('/admin/doctors/create', [AdminDoctorController::class, 'create'])->name('admin.doctors.create');
+    Route::post('/admin/doctors', [AdminDoctorController::class, 'store'])->name('admin.doctors.store');
+    Route::get('/admin/doctors/{doctor}', [AdminDoctorController::class, 'show'])->name('admin.doctors.show');
+    Route::get('/admin/doctors/{doctor}/edit', [AdminDoctorController::class, 'edit'])->name('admin.doctors.edit');
+    Route::put('/admin/doctors/{doctor}', [AdminDoctorController::class, 'update'])->name('admin.doctors.update');
+    Route::delete('/admin/doctors/{doctor}', [AdminDoctorController::class, 'destroy'])->name('admin.doctors.destroy');
+    Route::get('/admin/doctors/dataTable', [AdminDoctorController::class, 'dataTable'])->name('admin.doctors.dataTable');
+
+    Route::get('/admin/profile', [AdminProfileController::class, 'index'])->name('admin.profile.index');
+    Route::put('/admin/profile', [AdminProfileController::class, 'update'])->name('admin.profile.update');
+
+
+
+});
+
+Route::group(['middleware' => ['auth']], function () {
+    //misc API's
+    Route::get('/doctor/getPatients', [DoctorPatientRecordController::class, 'getPatients'])->name('doctor.getPatients');
+    Route::get('/doctors', [PatientRecordController::class, 'getDoctors'])->name('doctors.list');
+});
+
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [RegisterController::class, 'register']);
 
-
-
-
-Route::get('/admin/home', [AdminController::class, 'index'])->name('admin.index');
-
-//admin patient
-Route::get('/admin/patients', [AdminPatientController::class, 'index'])->name('admin.patients.index');
-Route::get('/admin/patients/data', [AdminPatientController::class, 'dataTable'])->name('admin.patients.data');
-Route::post('/admin/patients', [AdminPatientController::class, 'store'])->name('admin.patients.store');
-
-
-//admin appointment
-Route::get('/admin/appointments', [AdminAppointmentController::class, 'index'])->name('admin.appointments.index');
-Route::post('/admin/appointments', [AdminAppointmentController::class, 'store'])->name('admin.appointments.store');
-Route::put('/admin/appointments/{id}', [AdminAppointmentController::class, 'update'])->name('admin.appointments.update');
-Route::get('/admin/appointments/hospital', [AdminAppointmentController::class, 'getHospitalId'])->name('admin.appointment');
-Route::get('/admin/appointments/all', [AdminAppointmentController::class, 'getAllAppointments'])->name('admin.appointments');
-Route::get('/admin/appointments/fetch/{id}', [AdminAppointmentController::class, 'fetch'])->name('admin.appointment.fetch');
-
-
-Route::get('/admin/doctors', [AdminDoctorController::class, 'index'])->name('admin.doctors.index');
-Route::get('/admin/doctors/create', [AdminDoctorController::class, 'create'])->name('admin.doctors.create');
-Route::post('/admin/doctors', [AdminDoctorController::class, 'store'])->name('admin.doctors.store');
-Route::get('/admin/doctors/{doctor}', [AdminDoctorController::class, 'show'])->name('admin.doctors.show');
-Route::get('/admin/doctors/{doctor}/edit', [AdminDoctorController::class, 'edit'])->name('admin.doctors.edit');
-Route::put('/admin/doctors/{doctor}', [AdminDoctorController::class, 'update'])->name('admin.doctors.update');
-Route::delete('/admin/doctors/{doctor}', [AdminDoctorController::class, 'destroy'])->name('admin.doctors.destroy');
-Route::get('/admin/doctors/dataTable', [AdminDoctorController::class, 'dataTable'])->name('admin.doctors.dataTable');
-
-Route::get('/admin/profile', [AdminProfileController::class, 'index'])->name('admin.profile.index');
-Route::put('/admin/profile', [AdminProfileController::class, 'update'])->name('admin.profile.update');
