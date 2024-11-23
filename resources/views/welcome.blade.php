@@ -6,7 +6,7 @@
 
         <title>{{env('APP_NAME')}}</title>
 
-        <link rel="icon" href="{{ asset('img/favicon.png') }}">
+        <link rel="icon" href="{{ asset('new-icon.png') }}">
 
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
@@ -198,7 +198,7 @@
         <div class="container">
             <div class="schedule-inner">
                 <div class="row">
-                    <div class="col-lg-4 col-md-6 col-12 ">
+                    <div class="col-lg-4 col-md-6 col-12">
                         <!-- single-schedule -->
                         <div class="single-schedule first">
                             <div class="inner">
@@ -206,9 +206,9 @@
                                     <i class="fa fa-ambulance"></i>
                                 </div>
                                 <div class="single-content">
-                                    <span>Lorem Amet</span>
+                                    <span>Quick Care</span>
                                     <h4>Emergency Cases</h4>
-                                    <p>Lorem ipsum sit amet consectetur adipiscing elit. Vivamus et erat in lacus convallis sodales.</p>
+                                    <p>We provide immediate help for urgent needs, ensuring timely medical attention.</p>
                                     <a href="#">LEARN MORE<i class="fa fa-long-arrow-right"></i></a>
                                 </div>
                             </div>
@@ -219,12 +219,12 @@
                         <div class="single-schedule middle">
                             <div class="inner">
                                 <div class="icon">
-                                    <i class="icofont-prescription"></i>
+                                    <i class="icofont-chat"></i>
                                 </div>
                                 <div class="single-content">
-                                    <span>Fusce Porttitor</span>
-                                    <h4>Doctors Timetable</h4>
-                                    <p>Lorem ipsum sit amet consectetur adipiscing elit. Vivamus et erat in lacus convallis sodales.</p>
+                                    <span>Get Answers</span>
+                                    <h4>Chat Feature</h4>
+                                    <p>Reach out to our team via chat to get quick answers to your health concerns.</p>
                                     <a href="#">LEARN MORE<i class="fa fa-long-arrow-right"></i></a>
                                 </div>
                             </div>
@@ -238,12 +238,11 @@
                                     <i class="icofont-ui-clock"></i>
                                 </div>
                                 <div class="single-content">
-                                    <span>Donec luctus</span>
                                     <h4>Opening Hours</h4>
                                     <ul class="time-sidual">
-                                        <li class="day">Monday - Fridayp <span>8.00-20.00</span></li>
+                                            <li class="day">Monday - Friday <span>8.00-20.00</span></li>
                                         <li class="day">Saturday <span>9.00-18.30</span></li>
-                                        <li class="day">Monday - Thusday <span>9.00-15.00</span></li>
+                                        <li class="day">Sunday - Thursday <span>9.00-15.00</span></li>
                                     </ul>
                                     <a href="#">LEARN MORE<i class="fa fa-long-arrow-right"></i></a>
                                 </div>
@@ -254,6 +253,8 @@
             </div>
         </div>
     </section>
+
+
     <!--/End Start schedule Area -->
 
     <section class="Feautes section">
@@ -440,14 +441,14 @@
     <!--/ End Call to action -->
 
     <!-- Start portfolio -->
-    <section class="portfolio section" >
+    <section class="portfolio section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>We Maintain Cleanliness Rules Inside Our Hospital</h2>
+                        <h2>We Take Pride in Supporting Women, Children, and Families</h2>
                         <img src="img/section-img.png" alt="#">
-                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+                        <p>Our hospital is dedicated to providing compassionate care and assistance to those in need, empowering individuals and communities alike.</p>
                     </div>
                 </div>
             </div>
@@ -457,42 +458,23 @@
                 <div class="col-lg-12 col-12">
                     <div class="owl-carousel portfolio-slider">
                         <div class="single-pf">
-                            <img src="{{asset('img/profile1.png')}}" alt="#">
-                            <a href="portfolio-details.html" class="btn">View Details</a>
+                            <img src="{{asset('img/profile1.png')}}" alt="Image of a helped person">
                         </div>
                         <div class="single-pf">
-                            <img src="{{asset('img/profile2.png')}}" alt="#">
-                            <a href="portfolio-details.html" class="btn">View Details</a>
+                            <img src="{{asset('img/profile2.png')}}" alt="Image of a woman helped">
                         </div>
                         <div class="single-pf">
-                            <img src="{{asset('img/profile3.png')}}" alt="#">
-                            <a href="portfolio-details.html" class="btn">View Details</a>
+                            <img src="{{asset('img/profile3.png')}}" alt="Image of children receiving help">
                         </div>
                         <div class="single-pf">
-                            <img src="{{asset('img/profile4.png')}}" alt="#">
-                            <a href="portfolio-details.html" class="btn">View Details</a>
+                            <img src="{{asset('img/profile4.png')}}" alt="Image of supported families">
                         </div>
-{{--                        <div class="single-pf">--}}
-{{--                            <img src="img/pf1.jpg" alt="#">--}}
-{{--                            <a href="portfolio-details.html" class="btn">View Details</a>--}}
-{{--                        </div>--}}
-{{--                        <div class="single-pf">--}}
-{{--                            <img src="img/pf2.jpg" alt="#">--}}
-{{--                            <a href="portfolio-details.html" class="btn">View Details</a>--}}
-{{--                        </div>--}}
-{{--                        <div class="single-pf">--}}
-{{--                            <img src="img/pf3.jpg" alt="#">--}}
-{{--                            <a href="portfolio-details.html" class="btn">View Details</a>--}}
-{{--                        </div>--}}
-{{--                        <div class="single-pf">--}}
-{{--                            <img src="img/pf4.jpg" alt="#">--}}
-{{--                            <a href="portfolio-details.html" class="btn">View Details</a>--}}
-{{--                        </div>--}}
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
     <!--/ End portfolio -->
 
     <!-- Start service -->
