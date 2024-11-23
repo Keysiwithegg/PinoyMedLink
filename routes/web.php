@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminDoctorController;
 use App\Http\Controllers\AdminPatientController;
 use App\Http\Controllers\AdminProfileController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DoctorAppointmentController;
 use App\Http\Controllers\DoctorPatientController;
 use App\Http\Controllers\DoctorPatientRecordController;
@@ -145,3 +146,5 @@ Route::group(['middleware' => ['auth']], function () {
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [RegisterController::class, 'register']);
 
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');

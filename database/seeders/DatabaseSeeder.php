@@ -25,12 +25,6 @@ class DatabaseSeeder extends Seeder
             'subscription_type' => 'Basic',
         ]);
 
-
-
-
-
-
-
         // Create 10 users with role_id = 2
         $usersWithRole2 = User::factory()->count(10)->create(['role_id' => 2]);
 
