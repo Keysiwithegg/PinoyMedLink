@@ -40,18 +40,21 @@ class DoctorAppointmentController extends Controller
 
     public function update(Request $request, $id)
     {
+        Log::info($request->all());
         $validatedData = $request->validate([
             'patient_id' => 'required|exists:patients,patient_id',
             'doctor_id' => 'required|exists:doctors,doctor_id',
             'hospital_id' => 'required|exists:hospitals,hospital_id',
             'appointment_date' => 'required|date',
             'reason_for_visit' => 'required|string|max:255',
-            'status' => 'required|string|in:scheduled,cancelled,completed',
+            'status' => 'required|string',
         ]);
 
         try {
             $appointment = Appointment::findOrFail($id);
             $appointment->update($validatedData);
+
+            Log::info($appointment);
             return response()->json(['data' => $appointment, 'message' => 'Appointment updated successfully.'], 200);
         } catch (\Exception $e) {
             Log::error('Error updating appointment: ' . $e->getMessage());

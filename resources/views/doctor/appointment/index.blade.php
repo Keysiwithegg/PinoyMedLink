@@ -229,9 +229,9 @@
                                     <div class="mb-3">
                                         <label for="status" class="form-label">Status</label>
                                         <select id="status" class="form-control">
-                                            <option value="scheduled" ${appointment.status === 'scheduled' ? 'selected' : ''}>Scheduled</option>
-                                            <option value="cancelled" ${appointment.status === 'cancelled' ? 'selected' : ''}>Cancelled</option>
-                                            <option value="completed" ${appointment.status === 'completed' ? 'selected' : ''}>Completed</option>
+                                            <option value="Scheduled" ${appointment.status === 'Scheduled' ? 'selected' : ''}>Scheduled</option>
+                                            <option value="Cancelled" ${appointment.status === 'Cancelled' ? 'selected' : ''}>Cancelled</option>
+                                            <option value="Completed" ${appointment.status === 'Completed' ? 'selected' : ''}>Completed</option>
                                         </select>
                                     </div>
                                 `,
