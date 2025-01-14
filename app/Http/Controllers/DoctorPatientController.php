@@ -11,11 +11,13 @@ use Illuminate\Support\Facades\Hash;
 
 class DoctorPatientController extends Controller
 {
+    // Display the doctor patient view
     public function index()
     {
         return view('doctor.patient.index');
     }
 
+    // Fetch all patients for the authenticated doctor
     public function dataTable()
     {
         $doctor = Doctor::find(Auth::id());
@@ -26,8 +28,10 @@ class DoctorPatientController extends Controller
         return response()->json(['data' => $patients]);
     }
 
+    // Store a new patient record
     public function store(Request $request)
     {
+        // Validate the incoming request data
         $request->validate([
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',

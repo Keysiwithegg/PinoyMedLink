@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class DoctorProfileController extends Controller
 {
+    // Display the doctor's profile view
     public function index()
     {
         $user = Auth::user();
@@ -17,8 +18,10 @@ class DoctorProfileController extends Controller
         return view('doctor.profile.index', compact('user', 'doctor'));
     }
 
+    // Update the doctor's profile
     public function update(Request $request)
     {
+        // Validate the incoming request data
         $request->validate([
             'email' => 'required|string|email|max:255|unique:users,email,' . Auth::id(),
             'first_name' => 'required|string|max:255',
@@ -27,6 +30,7 @@ class DoctorProfileController extends Controller
             'contact_number' => 'required|string|max:15',
         ]);
 
+        // Update the user's information
         $user = Auth::user();
         $fullName = $request->first_name . ' ' . $request->last_name;
         $user->update([
@@ -34,6 +38,7 @@ class DoctorProfileController extends Controller
             'email' => $request->email,
         ]);
 
+        // Update the doctor's information
         $doctor = $user->doctor;
         $doctor->update([
             'first_name' => $request->first_name,

@@ -10,25 +10,30 @@ use Illuminate\Support\Facades\Log;
 
 class AdminDoctorController extends Controller
 {
+    // Display the list of all doctors
     public function index()
     {
         $doctors = Doctor::all();
         return view('admin.doctor.index', compact('doctors'));
     }
 
+    // Return a JSON response with all doctors
     public function dataTable()
     {
         $doctors = Doctor::all();
         return response()->json(['data' => $doctors]);
     }
 
+    // Return a JSON response indicating that the create method is not supported
     public function create()
     {
         return response()->json(['message' => 'Create method not supported.'], 405);
     }
 
+    // Store a new doctor
     public function store(Request $request)
     {
+        // Validate the incoming request data
         $validatedData = $request->validate([
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
@@ -62,11 +67,13 @@ class AdminDoctorController extends Controller
 
             return response()->json(['data' => $doctor, 'message' => 'Doctor created successfully.'], 201);
         } catch (\Exception $e) {
+            // Log the error and return a 500 response
             Log::error('Error creating doctor: ' . $e->getMessage());
             return response()->json(['message' => 'An error occurred while creating the doctor.'], 500);
         }
     }
 
+    // Fetch a specific doctor by ID
     public function show($id)
     {
         try {
@@ -74,18 +81,22 @@ class AdminDoctorController extends Controller
             $doctor = Doctor::findOrFail($id);
             return response()->json(['data' => $doctor], 200);
         } catch (\Exception $e) {
+            // Log the error and return a 404 response
             Log::error('Error fetching doctor: ' . $e->getMessage());
             return response()->json(['message' => 'Doctor not found.'], 404);
         }
     }
 
+    // Return a JSON response indicating that the edit method is not supported
     public function edit($id)
     {
         return response()->json(['message' => 'Edit method not supported.'], 405);
     }
 
+    // Update an existing doctor
     public function update(Request $request, $id)
     {
+        // Validate the incoming request data
         $validatedData = $request->validate([
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
@@ -95,20 +106,24 @@ class AdminDoctorController extends Controller
         ]);
 
         try {
+            // Find the doctor by ID and update it with the validated data
             $doctor = Doctor::findOrFail($id);
             $doctor->update($validatedData);
             return response()->json(['data' => $doctor, 'message' => 'Doctor updated successfully.'], 200);
         } catch (\Exception $e) {
+            // Log the error and return a 500 response
             Log::error('Error updating doctor: ' . $e->getMessage());
             return response()->json(['message' => 'An error occurred while updating the doctor.'], 500);
         }
     }
 
+    // Delete a doctor and associated records
     public function destroy($id)
     {
         \DB::beginTransaction();
 
         try {
+            // Find the doctor by ID
             $doctor = Doctor::findOrFail($id);
             $user = $doctor->user; // Get the associated user
 
@@ -129,6 +144,7 @@ class AdminDoctorController extends Controller
             return response()->json(['message' => 'Doctor, associated user, and related records deleted successfully.'], 200);
         } catch (\Exception $e) {
             \DB::rollBack();
+            // Log the error and return a 500 response
             Log::error('Error deleting doctor: ' . $e->getMessage());
             return response()->json(['message' => 'An error occurred while deleting the doctor.'], 500);
         }

@@ -11,19 +11,23 @@ use Illuminate\Support\Facades\Hash;
 
 class AdminPatientController extends Controller
 {
+    // Display the patient index view
     public function index()
     {
         return view('admin.patient.index');
     }
 
+    // Return a JSON response with all patients
     public function dataTable()
     {
         $patients = Patient::all();
         return response()->json(['data' => $patients]);
     }
 
+    // Store a new patient
     public function store(Request $request)
     {
+        // Validate the incoming request data
         $request->validate([
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
@@ -39,7 +43,7 @@ class AdminPatientController extends Controller
         $user->name = $request->first_name . ' ' . $request->last_name;
         $user->email = $request->email;
         $user->password = Hash::make('Test@123'); // Set a default password or generate one
-        $user->role_id = 0; // Set role_id to 2 for patients
+        $user->role_id = 0; // Set role_id to 0 for patients
         $user->save();
 
         // Create a new patient

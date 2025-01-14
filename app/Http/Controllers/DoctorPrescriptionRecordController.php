@@ -11,11 +11,13 @@ use Illuminate\Support\Facades\Log;
 
 class DoctorPrescriptionRecordController extends Controller
 {
+    // Display the patient prescription records view for doctors
     public function index()
     {
         return view('doctor.patient-prescription.index');
     }
 
+    // Fetch all prescriptions for DataTables
     public function dataTable(Request $request)
     {
         try {
@@ -58,9 +60,10 @@ class DoctorPrescriptionRecordController extends Controller
         }
     }
 
-    // In `app/Http/Controllers/DoctorPrescriptionRecordController.php`
+    // Store a new prescription
     public function store(Request $request)
     {
+        // Validate the incoming request data
         $request->validate([
             'record_id' => 'required|exists:medical_records,record_id',
             'medication_name' => 'required|string|max:255',
@@ -78,6 +81,7 @@ class DoctorPrescriptionRecordController extends Controller
         }
     }
 
+    // Fetch all patients
     public function getPatients()
     {
         try {
@@ -89,6 +93,7 @@ class DoctorPrescriptionRecordController extends Controller
         }
     }
 
+    // Fetch all medical records for a specific patient
     public function getMedicalRecords(Request $request)
     {
         $patientId = $request->query('patient_id');
@@ -102,8 +107,7 @@ class DoctorPrescriptionRecordController extends Controller
         }
     }
 
-    // In `app/Http/Controllers/DoctorPrescriptionRecordController.php`
-
+    // View a specific prescription
     public function show($id)
     {
         try {
@@ -115,6 +119,7 @@ class DoctorPrescriptionRecordController extends Controller
         }
     }
 
+    // Edit a specific prescription
     public function edit($id)
     {
         try {
@@ -126,8 +131,10 @@ class DoctorPrescriptionRecordController extends Controller
         }
     }
 
+    // Update a specific prescription
     public function update(Request $request, $id)
     {
+        // Validate the incoming request data
         $request->validate([
             'record_id' => 'required|exists:medical_records,record_id',
             'medication_name' => 'required|string|max:255',
@@ -146,6 +153,7 @@ class DoctorPrescriptionRecordController extends Controller
         }
     }
 
+    // Delete a specific prescription
     public function destroy($id)
     {
         try {
@@ -157,6 +165,4 @@ class DoctorPrescriptionRecordController extends Controller
             return response()->json(['message' => 'An error occurred while deleting the prescription.'], 500);
         }
     }
-
-
 }

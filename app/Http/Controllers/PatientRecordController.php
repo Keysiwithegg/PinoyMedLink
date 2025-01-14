@@ -11,11 +11,13 @@ use Illuminate\Support\Facades\Log;
 
 class PatientRecordController extends Controller
 {
+    // Display the patient record view
     public function index()
     {
         return view('patient.record.index');
     }
 
+    // Fetch all medical records for the authenticated patient
     public function dataTable()
     {
         try {
@@ -29,8 +31,10 @@ class PatientRecordController extends Controller
         }
     }
 
+    // Store a new medical record
     public function store(Request $request)
     {
+        // Validate the incoming request data
         $request->validate([
             'visit_date' => 'required|date',
             'diagnosis' => 'nullable|string',
@@ -47,10 +51,12 @@ class PatientRecordController extends Controller
             $data['patient_id'] = $patient->patient_id;
             $data['user_id'] = $user_id;
 
+            // Store the image if it exists
             if ($request->hasFile('image')) {
                 $data['image'] = $request->file('image')->store('images', 'public');
             }
 
+            // Create a new medical record
             $record = MedicalRecord::create($data);
             return response()->json(['message' => 'Medical record has been added.', 'data' => $record], 201);
         } catch (\Exception $e) {
@@ -59,6 +65,7 @@ class PatientRecordController extends Controller
         }
     }
 
+    // View a specific medical record
     public function show(string $id)
     {
         try {
@@ -69,6 +76,7 @@ class PatientRecordController extends Controller
         }
     }
 
+    // Edit a specific medical record
     public function edit(string $id)
     {
         try {
@@ -79,6 +87,7 @@ class PatientRecordController extends Controller
         }
     }
 
+    // Update a specific medical record
     public function update(Request $request, string $id)
     {
         try {
@@ -91,6 +100,7 @@ class PatientRecordController extends Controller
         }
     }
 
+    // Delete a specific medical record
     public function destroy(string $id)
     {
         try {
@@ -103,6 +113,7 @@ class PatientRecordController extends Controller
         }
     }
 
+    // Fetch all doctors
     public function getDoctors()
     {
         $doctors = Doctor::all();

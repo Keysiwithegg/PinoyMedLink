@@ -11,12 +11,14 @@ use Illuminate\Support\Facades\Log;
 
 class PatientAppointmentController extends Controller
 {
-
+    // Ensure only authenticated patients can access
     public function __construct()
     {
         $this->middleware('auth');
         $this->middleware('patient.access');
     }
+
+    // Display the patient's appointments view
     public function index()
     {
         $user = auth()->user();
@@ -34,6 +36,7 @@ class PatientAppointmentController extends Controller
         return view('patient.index', compact('appointments'));
     }
 
+    // Store a new appointment
     public function store(Request $request)
     {
         $user = Auth::user();
