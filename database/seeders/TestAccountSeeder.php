@@ -35,7 +35,7 @@ class TestAccountSeeder extends Seeder
         // Create a user for the doctor
         $user = User::create([
             'name' => 'Cleo Alcanzo',
-            'email' => 'cleo.alcanzo12@gmail.com',
+            'email' => 'cleoalcanzo123@gmail.com',
             'password' => Hash::make('Test@123'), // Use a secure password
             'role_id' => 2, // Assuming role_id 2 is for doctors
         ]);
@@ -46,7 +46,7 @@ class TestAccountSeeder extends Seeder
             'last_name' => 'Alcanzo',
             'specialty' => 'Cardiology', // Specify the specialty
             'contact_number' => '1234567890', // Provide a contact number
-            'email' => 'cleo.alcanzo12@gmail.com',
+            'email' => 'cleoalcanzo123@gmail.com',
             'hospital_id' => 1, // Assuming you have a hospital created
             'user_id' => $user->id,
         ]);
