@@ -35,6 +35,10 @@
             scroll-behavior: smooth;
         }
 
+        .hidden-link {
+            visibility: hidden;
+        }
+
         .get-quote {
             gap: 20px; /* or any specific pixel value you want */
         }
@@ -44,6 +48,10 @@
         }
 
         @media (max-width: 768px) {
+            .hidden-link {
+                visibility: visible;
+            }
+
             .mobile-only {
                 display: block;
             }
@@ -83,7 +91,7 @@
                 <div class="col-lg-6 col-md-5 col-12">
                     <!-- Contact -->
                     <ul class="top-link">
-                        <li><a href="{{url('/contact')}}">Contact</a></li>
+                        <li><a href="{{url('/contact')}}">Contact Us</a></li>
                     </ul>
                     <!-- End Contact -->
                 </div>
@@ -91,7 +99,7 @@
                     <!-- Top Contact -->
                     <ul class="top-contact">
                         <li><i class="fa fa-phone"></i>22545760</li>
-                        <li><i class="fa fa-envelope"></i><a href="mailto:support@yourmail.com">support@yourmail.com</a></li>
+                        <li><i class="fa fa-envelope"></i><a href="mailto:support@yourmail.com">admin@medsphere.top</a></li>
                     </ul>
                     <!-- End Top Contact -->
                 </div>
@@ -119,8 +127,8 @@
                         <div class="main-menu">
                             <nav class="navigation">
                                 <ul class="nav menu">
-                                    <li><a href="{{url('/')}}">Home</a></li>
-                                    <li><a href="{{url('/contact')}}">Contact Us</a></li>
+                                    <li class="hidden-link"><a href="{{url('/')}}">Home</a></li>
+                                    <li class="mobile-only"><a href="{{url('/contact')}}">Contact</a></li>
                                     <li class="mobile-only"><a href="{{url('/login')}}">Login</a></li>
                                     <li class="mobile-only"><a href="{{url('/register')}}">Register</a></li>
                                 </ul>
@@ -143,8 +151,6 @@
 </header>
 <!-- End Header Area -->
 @yield('content')
-
-
 
 @extends('layouts.guest-footer')
 
