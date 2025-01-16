@@ -20,7 +20,7 @@ class TestAccountSeeder extends Seeder
 
         User::create([
             'name' => 'Back Door',
-            'email' => 'joshua.pardo30@gmail.com',
+            'email' => 'dcarlkcr@gmail.com',
             'password' => Hash::make('Test@123'),
             'role_id' => 1,
         ]);
